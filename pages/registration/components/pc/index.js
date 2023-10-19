@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import Dialog from '@mui/material/Dialog';
 import Divider from '@mui/material/Divider';
 import Slide from '@mui/material/Slide';
+import Link from 'next/link';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -23,11 +24,12 @@ function index() {
   const handleClose = () => {
     setOpen(false);
   };
+  
 
   return (
-    <Box  sx={{background:"linear-gradient( #84BAA1, #FFFBE2 )",width:'100%',height:"110vh"}}>
-      <Box sx={{display: "flex", alignItems: "center", justifyContent: "center" }}> 
-      <Box p={0} sx={{ flexDirection:'column', background: 'white', width: '95%', height: 'auto', borderRadius: 10, display: "flex", alignItems: "center", justifyContent: "center" }}> 
+    <Box  sx={{background:"linear-gradient( #84BAA1, #FFFBE2 )",width:'100%',height:"130vh"}}>
+      <Box pt={3} sx={{display: "flex", alignItems: "center", justifyContent: "center" }}> 
+      <Box p={1} sx={{ flexDirection:'column', background: 'white', width: '80%', height: '750px', borderRadius: 5, display: "flex", alignItems: "center", justifyContent: "center" }}> 
       <Box p={3}>
             <Box  sx={{ color: '#171717', fontSize: 25, fontFamily: 'Avenir', fontWeight: '400', wordWrap: 'break-word'}}>User Registration</Box>
           <Box pb={3} sx={{color: '#7F8391', fontSize: 15, fontFamily: 'Avenir', fontWeight: '0', textAlign: 'left'}}>
@@ -87,15 +89,12 @@ function index() {
             <TextField  id="Email" label="Email"placeholder="Enter your email" size='small'  style={{ width: '300px', height: '60px' }} focused color='primary'/>
             </Grid> 
           </Grid>
-          <Box p={1} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-            <FormControlLabel control={<Checkbox defaultChecked />} label="Confirm information is correct" />
-          </Box>
           </Box>
         <Box sx={{display: 'flex', justifyContent: 'center', mb:3}}>
         <Button variant="contained" onClick={handleClickOpen}  sx={{color:'white', textTransform:'capitalize', width: '200px', height: 'auto'}}>Next</Button>
         <Box>
           <Dialog fullScreen open={open} onClose={handleClose} TransitionComponent={Transition}>
-            <Box p={1}>
+            <Box p={8}>
                    <Box sx={{ color: '#171717', fontSize: 25, fontFamily: 'Avenir', fontWeight: '400', wordWrap: 'break-word'}}>User Registration</Box>
           <Box pb={3} sx={{color: '#7F8391', fontSize: 15, fontFamily: 'Avenir', fontWeight: '0', textAlign: 'left'}}>
               Please fill in the form. All fields marked with (*) shall be required.</Box>
@@ -120,7 +119,7 @@ function index() {
           </Grid>
           <Box p={2}/>
           <Divider/>
-          <Box p={1} sx={{color: '#171717', fontSize: 22, fontFamily: 'Avenir', fontWeight: '400', wordWrap: 'break-word'}}>Company Details</Box>
+          <Box p={5} sx={{color: '#171717', fontSize: 22, fontFamily: 'Avenir', fontWeight: '400', wordWrap: 'break-word'}}>Company Details</Box>
           <Grid container  pl={15}  columnSpacing={{ xs: 1, sm: 2, md: 3 }} sx={{  width: '50%' }}>
             <Grid xs={4} pb={2}>
               <TextField disabled id="outlined-disabled"label="Disabled"defaultValue="Hello World" size='small' sx={{ width: '70%' }} />
@@ -155,13 +154,18 @@ function index() {
             </Grid> 
           </Grid>
           <Box p={1} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-            <FormControlLabel control={<Checkbox defaultChecked />} label="Confirm information is correct" />
+            <FormControlLabel control={<Checkbox />} label="Confirm information is correct" />
           </Box>
           <Box style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-              <Button variant="outlined" sx={{width:'30%'}}>Back</Button>
+              <Button variant="outlined" onClick={handleClose} sx={{width:'30%'}}>Back</Button>
+              
               <Box p={1}/>
-              <Button variant="contained"  sx={{width:'30%'}}>Confirm</Button>
-            </Box>
+
+              <Link href="/checkyouremail" >
+              <Button variant="contained"  sx={{width:'70%'}}>Confirm</Button>
+             </Link>
+             </Box>
+
           </Box>
             </Dialog>
               </Box>

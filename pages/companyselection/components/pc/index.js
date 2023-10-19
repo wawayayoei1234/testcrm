@@ -1,13 +1,15 @@
 import { Box, Button, TextField, Typography } from '@mui/material'
 import Image from 'next/image';
+import Link from 'next/link';
 import React, { useState } from 'react'
 
 function Index() {
   const [otp, setOtp] = useState('');
+ 
   return (
       <Box sx={{background:"linear-gradient( #84BAA1, #FFFBE2 )",height:"100vh",width:'100%'}}>
-        <Box p={3} sx={{display:'flex',flexDirection:'column', background: 'white',width:'70%',
-        borderRadius: 10,justifyContent:'center',alignItems:'center',position:'absolute',top:'50%',left:'50%',
+        <Box p={3} sx={{display:'flex',flexDirection:'column', background: 'white',width:'60%',height:'auto',
+        borderRadius: 5,justifyContent:'center',alignItems:'center',position:'absolute',top:'50%',left:'50%',
         transform: 'translate(-50%, -50%)'}}> 
           <Box sx={{ color: '#171717', fontSize: 20, fontFamily: 'Avenir', fontWeight: '800', 
           wordWrap: 'break-word'}}>Company Selection</Box>
@@ -27,8 +29,11 @@ function Index() {
         </Box>
         </Box>
         <Box p={5}>
+        <Link href="/registration" >
           <Button   variant='contained'  sx={{fontSize: '12px', padding: '6px 12px',backgroundColor:'#DAEBE3',
-          width: '300px', height: 'auto',textTransform:'capitalize', fontFamily: 'Avenir',color:'#fff' }}>Next</Button>       
+          width: '300px', height: 'auto',textTransform:'capitalize', fontFamily: 'Avenir',color:'#fff' }}>Next
+          </Button> 
+          </Link>      
         </Box>
         </Box>
       </Box>  

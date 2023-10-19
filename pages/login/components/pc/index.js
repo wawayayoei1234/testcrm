@@ -3,6 +3,7 @@ import { Box, Button, Checkbox, FormControlLabel, TextField ,InputAdornment} fro
 import React, { useState } from 'react';
 import Iconview from '../../../../data/images/Hide.png'
 import Image from 'next/image';
+import Link from 'next/link';
 
 function index() {
   const [data, setdata] = useState({username:'',password:''})
@@ -58,8 +59,10 @@ function index() {
             <Button variant="text"sx={{color:'#48846B',textTransform:'capitalize', fontFamily: 'Avenir',fontSize: 13
             ,}} >Forgot password</Button>
           </Box>
+          <Link href="/emailverification" >
         <Button variant='contained' onClick={login} style={{ fontSize: '12px', padding: '6px 12px',
         backgroundColor:'#84BAA1',width: '300px', height: 'auto',textTransform:'capitalize', fontFamily: 'Avenir',color:'#fff' }}>Next</Button>
+      </Link>
       <Box p={2}>
       <label style={{color:'#7F8391',fontSize: 15, fontFamily: 'Avenir'}}>Don't have an account?</label>
       <Button variant="text" sx={{color:'#48846B',textTransform:'capitalize', fontFamily: 'Avenir'}} >Sign up</Button>

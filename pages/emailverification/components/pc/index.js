@@ -1,4 +1,5 @@
 import { Box, Button, TextField } from '@mui/material'
+import Link from 'next/link';
 import React, { useState } from 'react'
 import OtpInput from 'react-otp-input';
 
@@ -25,8 +26,10 @@ function Index() {
           inputStyle={{ fontSize: '20px', width: '40px', height: '50px', }}
           />
           </Box>
+          <Link href="/resetpassword" >
           <Button  variant='contained'  style={{ fontSize: '12px', padding: '6px 12px',backgroundColor:'#84BAA1',
           width: '300px', height: 'auto',textTransform:'capitalize', fontFamily: 'Avenir',color:'#fff' }}>Next</Button>
+          </Link>
           <Box pt={2}>
             <span style={{color:'#7F8391',fontSize: 15, fontFamily: 'Avenir'}}>Didn’t receive code?</span>
             <Button variant="text" sx={{color:'#48846B',textTransform:'capitalize', fontFamily: 'Avenir'}} >

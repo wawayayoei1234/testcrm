@@ -1,7 +1,8 @@
 import { Box, Button, TextField } from '@mui/material'
 import Image from 'next/image';
 import React, { useState } from 'react'
-import logocmpany from '../../../.data/images/image 8.png'
+import logocmpany from '../../../../data/images/image 8.png'
+import Link from 'next/link';
 
 function Index() {
   const [otp, setOtp] = useState('');
@@ -15,8 +16,11 @@ function Index() {
           textAlign: 'left'}}>Please enter your company email address.</Box>
           <Box pb={3} ><Image alt="Iconview" src={logocmpany} width={200} height={'auto'}></Image></Box>
           <TextField  id="Email" label="Company Email Address"placeholder="@tracthai.com" size='small'  style={{ width: '300px', height: '60px'}} focused color='primary'/>       
+          <Link href="/companyselection" >
           <Button  variant='contained'  style={{ fontSize: '12px', padding: '6px 12px',backgroundColor:'#84BAA1',
-          width: '300px', height: 'auto',textTransform:'capitalize', fontFamily: 'Avenir',color:'#fff' }}>Next</Button>
+          width: '300px', height: 'auto',textTransform:'capitalize', fontFamily: 'Avenir',color:'#fff' }}>Next
+          </Button>
+          </Link>
         </Box>
       </Box>  
   )
