@@ -3,7 +3,7 @@ import { Box } from '@mui/material';
 import Body from './components/pc'
 import Mobile from './components/mobile'
 import Layout from  '../../components/layout'
-import { themedata } from '../../../../data/themedata';
+import { themedata } from '../../data/themedata';
 
 function Index() {
   return (

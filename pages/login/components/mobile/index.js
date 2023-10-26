@@ -3,6 +3,7 @@ import { themedata } from '../../../../data/themedata';
 import React, { useState } from 'react';
 import Iconview from '../../../../data/images/Hide.png'
 import Image from 'next/image';
+import { frontdata } from '../../../../data/frontdata'; 
 
 function index() {
   const [data, setdata] = useState({username:'',password:''})
