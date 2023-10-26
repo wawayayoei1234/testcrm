@@ -47,13 +47,24 @@ export default function () {
             </Box>  
         </Box>
         <Box sx={{display:'flex',justifyContent:'center',}}>
-          <Box p={1}>
+        <Box p={1}>
         <Box p={3} sx={{width: 430, height: 400,background: '#97BDFE', borderRadius: 5}} >
-        <div style={{width: '100%', color: '#171717', fontSize: 14, fontFamily: 'Avenir', fontWeight: '400', wordWrap: 'break-word'}}>October 2023</div>
-        <div style={{color: '#171717', fontSize: 24, fontFamily: 'Avenir', fontWeight: '350', wordWrap: 'break-word'}}>Calendar & Activity</div>
-        <Box sx={{position: 'absolute', top:777 ,left: 427 ,  margin: 'auto'}} >
-            <Image alt="Iconview" src={carenda} width={200} height={'auto'}  ></Image>
-            </Box> 
+        <Box style={{width: '100%', color: '#171717', fontSize: 14, fontFamily: 'Avenir', fontWeight: '400', wordWrap: 'break-word'}}>October 2023</Box>
+        <Box style={{color: '#171717', fontSize: 24, fontFamily: 'Avenir', fontWeight: '350', wordWrap: 'break-word'}}>Calendar & Activity</Box>
+        <Box style={{width: '100%', height: '140px', position: 'relative', background: 'white', borderRadius: 20, overflow: 'hidden', border: ' #EBEBEB '}}>
+        <Box style={{width: 12, height: 180, left: 0, top: 0, position: 'absolute', background: '#307BF1'}} />
+        <Box style={{left: 50, top: 29, position: 'absolute', color: '#171717', fontSize: 20, fontFamily: 'Avenir', fontWeight: '350', wordWrap: 'break-word'}}>Activity 1</Box>
+        <Box style={{width: 450, left: 50, top: 85, position: 'absolute', color: '#666666', fontSize: 12, fontFamily: 'Avenir', fontWeight: '300', wordWrap: 'break-word'}}>Lorem ipsum dolor sit amet consectetur. Quam id vehicula<br></br> dictum donec tincidunt.</Box>
+        </Box>
+        <br></br>
+        <Box style={{width: '100%', height: '140px', position: 'relative', background: 'white', borderRadius: 20, overflow: 'hidden', border: ' #EBEBEB '}}>
+        <Box style={{width: 12, height: 180, left: 0, top: 0, position: 'absolute', background: '#307BF1'}} />
+        <Box style={{left: 50, top: 29, position: 'absolute', color: '#171717', fontSize: 20, fontFamily: 'Avenir', fontWeight: '350', wordWrap: 'break-word'}}>Activity 2</Box>
+        <Box style={{width: 450, left: 50, top: 85, position: 'absolute', color: '#666666', fontSize: 12, fontFamily: 'Avenir', fontWeight: '300', wordWrap: 'break-word'}}>Lorem ipsum dolor sit amet consectetur. Quam id vehicula<br></br> dictum donec tincidunt.</Box>
+        <Box sx={{position: 'absolute', top: 777 , left: 427 , margin: 'auto', zIndex: 1}} >
+          <Image alt="Iconview" src={carenda} width={200} height={'auto'} />
+        </Box>
+      </Box> 
           </Box>
           </Box>
           <Box p={1}>

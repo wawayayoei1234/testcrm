@@ -36,7 +36,7 @@ function index() {
               Please fill in the form. All fields marked with (*) shall be required.</Box>
           <Divider/>
           <Box p={1} sx={{color: '#171717', fontSize: 22, fontFamily: 'Avenir', fontWeight: '400', wordWrap: 'break-word'}}>Personal Details</Box>
-          <Grid container  pl={15}  columnSpacing={{ xs: 1, sm: 2, md: 3 }} sx={{  width: '50%' }}>
+          <Grid container  pl={5}  columnSpacing={{ xs: 1, sm: 2, md: 3 }} sx={{  width: '50%' }}>
             <Grid xs={4} pb={2}>
             <TextField  id="Email" label="First Name"placeholder="Enter Your First Name" size='small'  style={{ width: '300px', height: '60px' }} focused color='primary'/>
             </Grid>
@@ -56,7 +56,7 @@ function index() {
           <Box p={2}/>
           <Divider/>
           <Box p={1} sx={{color: '#171717', fontSize: 22, fontFamily: 'Avenir', fontWeight: '400', wordWrap: 'break-word'}}>Company Details</Box>
-          <Grid container  pl={15}  columnSpacing={{ xs: 1, sm: 2, md: 3 }} sx={{  width: '50%' }}>
+          <Grid container  pl={5}  columnSpacing={{ xs: 1, sm: 2, md: 3 }} sx={{  width: '50%' }}>
             <Grid xs={4} pb={2}>
             <TextField  id="Email" label="Company Name"placeholder="Enter Company Name" size='small'  style={{ width: '300px', height: '60px' }} focused color='primary'/>
             </Grid>
@@ -67,10 +67,10 @@ function index() {
             <TextField  id="Email" label="Postal / ZIP Code"placeholder="Enter Postal / Code" size='small'  style={{ width: '300px', height: '60px' }} focused color='primary'/>
             </Grid>     
             <Grid  xs={4}pb={2}>
-            <TextField  id="Email" label="Email"placeholder="Enter your email" size='small'  style={{ width: '300px', height: '60px' }} focused color='primary'/>
+            <TextField  id="Email" label="Branch"placeholder="Branch" size='small'  style={{ width: '300px', height: '60px' }} focused color='primary'/>
             </Grid> 
             <Grid  xs={4}>
-            <TextField  id="Email" label="Email"placeholder="Enter your email" size='small'  style={{ width: '300px', height: '60px' }} focused color='primary'/>
+            <TextField  id="Email" label="State / Provice"placeholder="Bangkok" size='small'  style={{ width: '300px', height: '60px' }} focused color='primary'/>
             </Grid> 
             <Grid xs={4} pb={2}>
             <TextField  id="Email" label="Website"placeholder="www.thacthai.com" size='small'  style={{ width: '300px', height: '60px' }} focused color='primary'/>
@@ -79,14 +79,14 @@ function index() {
             <TextField  id="Email" label="Address"placeholder="Street, Apt" size='small'  style={{ width: '300px', height: '60px' }} focused color='primary'/>
             </Grid>
             <Grid  xs={4}>
-            <TextField  id="Email" label="Email"placeholder="Enter your email" size='small'  style={{ width: '300px', height: '60px' }} focused color='primary'/>
+            <TextField  id="Email" label="District"placeholder="Donmueang" size='small'  style={{ width: '300px', height: '60px' }} focused color='primary'/>
             </Grid>
             <Grid  xs={4}></Grid>      
             <Grid  xs={4}>
             <TextField  id="Email" label="Address 2"placeholder="Office, Room/Flat" size='small'  style={{ width: '300px', height: '60px' }} focused color='primary'/>
             </Grid> 
             <Grid  xs={4}>
-            <TextField  id="Email" label="Email"placeholder="Enter your email" size='small'  style={{ width: '300px', height: '60px' }} focused color='primary'/>
+            <TextField  id="Email" label="Sub-District"placeholder="Donmueang" size='small'  style={{ width: '300px', height: '60px' }} focused color='primary'/>
             </Grid> 
           </Grid>
           </Box>
@@ -94,7 +94,7 @@ function index() {
         <Button variant="contained" onClick={handleClickOpen}  sx={{color:'white', textTransform:'capitalize', width: '200px', height: 'auto'}}>Next</Button>
         <Box>
           <Dialog fullScreen open={open} onClose={handleClose} TransitionComponent={Transition}>
-            <Box p={8}>
+            <Box p={2}>
                    <Box sx={{ color: '#171717', fontSize: 25, fontFamily: 'Avenir', fontWeight: '400', wordWrap: 'break-word'}}>User Registration</Box>
           <Box pb={3} sx={{color: '#7F8391', fontSize: 15, fontFamily: 'Avenir', fontWeight: '0', textAlign: 'left'}}>
               Please fill in the form. All fields marked with (*) shall be required.</Box>
@@ -119,7 +119,7 @@ function index() {
           </Grid>
           <Box p={2}/>
           <Divider/>
-          <Box p={5} sx={{color: '#171717', fontSize: 22, fontFamily: 'Avenir', fontWeight: '400', wordWrap: 'break-word'}}>Company Details</Box>
+          <Box p={3} sx={{color: '#171717', fontSize: 22, fontFamily: 'Avenir', fontWeight: '400', wordWrap: 'break-word'}}>Company Details</Box>
           <Grid container  pl={15}  columnSpacing={{ xs: 1, sm: 2, md: 3 }} sx={{  width: '50%' }}>
             <Grid xs={4} pb={2}>
               <TextField disabled id="outlined-disabled"label="Disabled"defaultValue="Hello World" size='small' sx={{ width: '70%' }} />
@@ -156,16 +156,13 @@ function index() {
           <Box p={1} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
             <FormControlLabel control={<Checkbox />} label="Confirm information is correct" />
           </Box>
-          <Box style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+          <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
               <Button variant="outlined" onClick={handleClose} sx={{width:'30%'}}>Back</Button>
-              
               <Box p={1}/>
-
-              <Link href="/checkyouremail" >
-              <Button variant="contained"  sx={{width:'70%'}}>Confirm</Button>
-             </Link>
-             </Box>
-
+            
+              <Button LinkComponent={Link} href='/checkyouremail' variant="contained"sx={{width:'30%'}} >Confirm</Button>
+             
+            </Box>
           </Box>
             </Dialog>
               </Box>
