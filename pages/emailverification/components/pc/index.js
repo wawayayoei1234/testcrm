@@ -3,7 +3,7 @@ import Link from 'next/link';
 import React, { useState } from 'react'
 import OtpInput from 'react-otp-input';
 import { themedata } from '../../../../data/themedata';
-
+import { frontdata } from '../../../../data/frontdata'; 
 function Index() {
   const [otp, setOtp] = useState('');
   return (
@@ -12,9 +12,9 @@ function Index() {
         <Box p={5} sx={{display:'flex',flexDirection:'column', background: 'white',
         borderRadius: 10,justifyContent:'center',alignItems:'center',position:'absolute',top:'50%',left:'50%',
         transform: 'translate(-50%, -50%)'}}> 
-          <Box sx={{ color: `${themedata[0].ten}`, fontSize: 20, fontFamily: 'Avenir', fontWeight: '800', 
+          <Box sx={{ color: `${themedata[0].ten}`, fontSize: 20, fontFamily: frontdata[0].font, fontWeight: '800', 
           wordWrap: 'break-word',}}>Email Verification</Box>
-          <Box pb={3} sx={{color: `${themedata[0].four}`, fontSize: 15, fontFamily: 'Avenir', fontWeight: '0', 
+          <Box pb={3} sx={{color: `${themedata[0].four}`, fontSize: 15, fontFamily: frontdata[0].font, fontWeight: '0', 
           textAlign: 'left'}}>We have sent code to your Email ex**e@tracmail.com</Box>
           <Box pb={3} >
           <OtpInput
@@ -29,11 +29,11 @@ function Index() {
           </Box>
           <Link href="/resetpassword" >
           <Button  variant='contained'  style={{ fontSize: '12px', padding: '6px 12px',backgroundColor:`${themedata[0].primary}`,
-          width: '300px', height: 'auto',textTransform:'capitalize', fontFamily: 'Avenir',color:`${themedata[0].three}`}}>Next</Button>
+          width: '300px', height: 'auto',textTransform:'capitalize', fontFamily: frontdata[0].font,color:`${themedata[0].three}`}}>Next</Button>
           </Link>
           <Box pt={2}>
-            <span style={{color:`${themedata[0].four}`,fontSize: 15, fontFamily: 'Avenir'}}>Didn’t receive code?</span>
-            <Button variant="text" sx={{color:`${themedata[0].secondary}`,textTransform:'capitalize', fontFamily: 'Avenir'}} >
+            <span style={{color:`${themedata[0].four}`,fontSize: 15, fontFamily: frontdata[0].font}}>Didn’t receive code?</span>
+            <Button variant="text" sx={{color:`${themedata[0].secondary}`,textTransform:'capitalize', fontFamily: frontdata[0].font}} >
                 Sign up</Button>
           </Box> 
         </Box>

@@ -5,7 +5,6 @@ import Mobile from './components/mobile'
 import Layout from  '../../components/layout'
 import { themedata } from '../../data/themedata'; 
 
-
 function Index() {
   return (
     <Box sx={{background:`linear-gradient(${themedata[0].primary}, ${themedata[0].three})`}}>
@@ -22,5 +21,4 @@ function Index() {
     </Box>
   )
 }
-
 export default Index

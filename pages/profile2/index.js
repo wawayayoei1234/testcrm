@@ -8,12 +8,12 @@ import Conten from './components/conten2'
 import { themedata } from '../../data/themedata';
 
 
+
 function Index() {
   return (
     <Box>
       <Box sx={{display: "flex",justifyContent: "center",alignItems: "center"}}> 
     <Box sx={{display:{xs:'none',md:'flex'}}}>  
-    
       <Layout containerheight="auto" templaterow="0fr auto auto 0fr" templateareas="'nav' 'content1' 'content2' 'footer'" 
       mtemplaterow="0fr auto auto 0fr" mtemplateareas="'nav' 'content1' 'content2' 'footer'"
       nav={<Box><Navbar/></Box>}

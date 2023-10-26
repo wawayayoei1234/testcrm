@@ -2,13 +2,13 @@ import { Box } from '@mui/material'
 import React from 'react'
 import EditIcon from '@mui/icons-material/Edit';
 import { themedata } from '../../../../data/themedata';
-
+import { frontdata } from '../../../../data/frontdata'; 
 function index() {
   return (
     <Box sx={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center'}}>
           <Box sx={{ justifyContent:'space-between', display: 'flex', alignItems: 'baseline',flexDirection:'column'}}>
-              <Box sx={{color: `${themedata[0].ten}`, fontSize: 18, fontFamily: 'Avenir', fontWeight: '350'}}>Oct, 9</Box>
-              <Box sx={{color: `${themedata[0].ten}`, fontSize: 24, fontFamily: 'Avenir', fontWeight: '800', display: 'flex', alignItems: 'center'}}>Hi, Name</Box>
+              <Box sx={{color: `${themedata[0].ten}`, fontSize: 18, fontFamily: frontdata[0].font, fontWeight: '350'}}>Oct, 9</Box>
+              <Box sx={{color: `${themedata[0].ten}`, fontSize: 24, fontFamily: frontdata[0].font, fontWeight: '800', display: 'flex', alignItems: 'center'}}>Hi, Name</Box>
               
           </Box>
           <Box sx={{ display: 'flex', alignItems: 'baseline' }}>

@@ -5,6 +5,7 @@ import Divider from '@mui/material/Divider';
 import Slide from '@mui/material/Slide';
 import Link from 'next/link';
 import { themedata } from '../../../../data/themedata';
+import { frontdata } from '../../../../data/frontdata'; 
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -32,11 +33,11 @@ function index() {
       <Box pt={3} sx={{display: "flex", alignItems: "center", justifyContent: "center" }}> 
       <Box p={1} sx={{ flexDirection:'column', background: 'white', width: '80%', height: '750px', borderRadius: 5, display: "flex", alignItems: "center", justifyContent: "center" }}> 
       <Box p={3}>
-            <Box  sx={{ color: `${themedata[0].four}`, fontSize: 25, fontFamily: 'Avenir', fontWeight: '400', wordWrap: 'break-word'}}>User Registration</Box>
-          <Box pb={3} sx={{color:  `${themedata[0].four}`, fontSize: 15, fontFamily: 'Avenir', fontWeight: '0', textAlign: 'left'}}>
+            <Box  sx={{ color: `${themedata[0].four}`, fontSize: 25, fontFamily: frontdata[0].font, fontWeight: '400', wordWrap: 'break-word'}}>User Registration</Box>
+          <Box pb={3} sx={{color:  `${themedata[0].four}`, fontSize: 15, fontFamily: frontdata[0].font, fontWeight: '0', textAlign: 'left'}}>
               Please fill in the form. All fields marked with (*) shall be required.</Box>
           <Divider/>
-          <Box p={1} sx={{color: `${themedata[0].four}`, fontSize: 22, fontFamily: 'Avenir', fontWeight: '400', wordWrap: 'break-word'}}>Personal Details</Box>
+          <Box p={1} sx={{color: `${themedata[0].four}`, fontSize: 22, fontFamily: frontdata[0].font, fontWeight: '400', wordWrap: 'break-word'}}>Personal Details</Box>
           <Grid container  pl={5}  columnSpacing={{ xs: 1, sm: 2, md: 3 }} sx={{  width: '50%' }}>
             <Grid xs={4} pb={2}>
             <TextField  id="Email" label="First Name"placeholder="Enter Your First Name" size='small'  style={{ width: '300px', height: '60px' }} focused color='primary'/>
@@ -56,7 +57,7 @@ function index() {
           </Grid>
           <Box p={2}/>
           <Divider/>
-          <Box p={1} sx={{color: `${themedata[0].ten}`, fontSize: 22, fontFamily: 'Avenir', fontWeight: '400', wordWrap: 'break-word'}}>Company Details</Box>
+          <Box p={1} sx={{color: `${themedata[0].ten}`, fontSize: 22, fontFamily: frontdata[0].font, fontWeight: '400', wordWrap: 'break-word'}}>Company Details</Box>
           <Grid container  pl={5}  columnSpacing={{ xs: 1, sm: 2, md: 3 }} sx={{  width: '50%' }}>
             <Grid xs={4} pb={2}>
             <TextField  id="Email" label="Company Name"placeholder="Enter Company Name" size='small'  style={{ width: '300px', height: '60px' }} focused color='primary'/>
@@ -96,11 +97,11 @@ function index() {
         <Box>
           <Dialog fullScreen open={open} onClose={handleClose} TransitionComponent={Transition}>
             <Box p={2}>
-                   <Box sx={{ color: `${themedata[0].ten}`, fontSize: 25, fontFamily: 'Avenir', fontWeight: '400', wordWrap: 'break-word'}}>User Registration</Box>
-          <Box pb={3} sx={{color:  `${themedata[0].four}`, fontSize: 15, fontFamily: 'Avenir', fontWeight: '0', textAlign: 'left'}}>
+                   <Box sx={{ color: `${themedata[0].ten}`, fontSize: 25, fontFamily: frontdata[0].font, fontWeight: '400', wordWrap: 'break-word'}}>User Registration</Box>
+          <Box pb={3} sx={{color:  `${themedata[0].four}`, fontSize: 15, fontFamily: frontdata[0].font, fontWeight: '0', textAlign: 'left'}}>
               Please fill in the form. All fields marked with (*) shall be required.</Box>
           <Divider/>
-          <Box p={1} sx={{color: `${themedata[0].ten}`, fontSize: 22, fontFamily: 'Avenir', fontWeight: '400', wordWrap: 'break-word'}}>Personal Details</Box>
+          <Box p={1} sx={{color: `${themedata[0].ten}`, fontSize: 22, fontFamily: frontdata[0].font, fontWeight: '400', wordWrap: 'break-word'}}>Personal Details</Box>
           <Grid container  pl={15}  columnSpacing={{ xs: 1, sm: 2, md: 3 }} sx={{  width: '50%' }}>
             <Grid xs={4} pb={2}>
               <TextField disabled id="outlined-disabled"label="Disabled"defaultValue="Hello World" size='small' sx={{ width: '70%' }} />
@@ -120,7 +121,7 @@ function index() {
           </Grid>
           <Box p={2}/>
           <Divider/>
-          <Box p={3} sx={{color: `${themedata[0].ten}`, fontSize: 22, fontFamily: 'Avenir', fontWeight: '400', wordWrap: 'break-word'}}>Company Details</Box>
+          <Box p={3} sx={{color: `${themedata[0].ten}`, fontSize: 22, fontFamily: frontdata[0].font, fontWeight: '400', wordWrap: 'break-word'}}>Company Details</Box>
           <Grid container  pl={15}  columnSpacing={{ xs: 1, sm: 2, md: 3 }} sx={{  width: '50%' }}>
             <Grid xs={4} pb={2}>
               <TextField disabled id="outlined-disabled"label="Disabled"defaultValue="Hello World" size='small' sx={{ width: '70%' }} />

@@ -42,8 +42,8 @@ function index() {
       <Box p={5} sx={{display:'flex',flexDirection:'column', background: 'white',width:'70%',height:'auto',
       borderRadius: 10,justifyContent:'center',alignItems:'center',position:'absolute',top:'50%',left:'50%',transform: 'translate(-50%, -50%)'}}> 
         <Box>
-        <Box sx={{ color: '#171717', fontSize: 20, fontFamily: 'Avenir', fontWeight: '800'}}>Login</Box> 
-        <Box pb={3} sx={{color: `${themedata[0].four}`, fontSize: 14, fontFamily: 'Avenir', textAlign: 'left'}}>Welcome to ChicCRM Please login your<br/>account.</Box>
+        <Box sx={{ color: '#171717', fontSize: 20, fontFamily: frontdata[0].font, fontWeight: '800'}}>Login</Box> 
+        <Box pb={3} sx={{color: `${themedata[0].four}`, fontSize: 14, fontFamily: frontdata[0].font, textAlign: 'left'}}>Welcome to ChicCRM Please login your<br/>account.</Box>
             <Box pb={1}> <TextField  id="Email" label="Email"placeholder="Enter your email" size='small'  style={{ width: '300px', height: '60px' }} focused color='primary'/></Box>
             <Box> <TextField  id="Password" label="Password" placeholder="6+ strong character" size='small' style={{ width: '300px', height: '60px' }}focused color='primary' 
             InputProps={{ 
@@ -54,15 +54,15 @@ function index() {
              </Box> 
             <Box  >
             <FormControlLabel  control={<Checkbox/>}label="Remember for 30 day"sx={{'& .MuiSvgIcon-root': 
-            { fontSize: 20 },' & .MuiTypography-root': { fontSize: 13, fontFamily: 'Avenir' } }}/>
-            <Button variant="text"sx={{color:`${themedata[0].secondary}`,textTransform:'capitalize', fontFamily: 'Avenir',fontSize: 13
+            { fontSize: 20 },' & .MuiTypography-root': { fontSize: 13, fontFamily: frontdata[0].font } }}/>
+            <Button variant="text"sx={{color:`${themedata[0].secondary}`,textTransform:'capitalize', fontFamily: frontdata[0].font,fontSize: 13
             ,}} >Forgot password</Button>
           </Box>
         <Button variant='contained' onClick={login} style={{ fontSize: '12px', padding: '6px 12px',
-        backgroundColor:`${themedata[0].primary}`,width: '300px', height: 'auto',textTransform:'capitalize', fontFamily: 'Avenir',color:`${themedata[0].three}` }}>Next</Button>
+        backgroundColor:`${themedata[0].primary}`,width: '300px', height: 'auto',textTransform:'capitalize', fontFamily: frontdata[0].font,color:`${themedata[0].three}` }}>Next</Button>
       <Box p={2}>
-      <label style={{color:`${themedata[0].four}`,fontSize: 15, fontFamily: 'Avenir'}}>Don't have an account?</label>
-      <Button variant="text" sx={{color:`${themedata[0].secondary}`,textTransform:'capitalize', fontFamily: 'Avenir'}} >Sign up</Button>
+      <label style={{color:`${themedata[0].four}`,fontSize: 15, fontFamily: frontdata[0].font}}>Don't have an account?</label>
+      <Button variant="text" sx={{color:`${themedata[0].secondary}`,textTransform:'capitalize', fontFamily: frontdata[0].font}} >Sign up</Button>
       </Box>
      </Box>
     </Box>

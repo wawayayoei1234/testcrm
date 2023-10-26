@@ -8,6 +8,7 @@ import fb from '../../../../data/images/logofacebook.png'
 import az from '../../../../data/images/logoAzure.png'
 import Link from 'next/link';
 import { themedata } from '../../../../data/themedata'; 
+import { frontdata } from '../../../../data/frontdata'; 
 
 function index() {
   return (
@@ -15,8 +16,8 @@ function index() {
         <Box p={10} sx={{display:'flex',flexDirection:'column', background: 'white',width:'auto',
         borderRadius: 10,justifyContent:'center',alignItems:'center',}}> 
         <Box sx={{ textAlign: 'center' }}>
-        <span style={{ color: 'black', fontSize: 30, fontFamily: 'Avenir', fontWeight: 500, wordWrap: 'break-word' }}>Welcome to </span>
-        <span style={{ color: `${themedata[0].secondary}` , fontSize: 30, fontFamily: 'Avenir', fontWeight: 1000, wordWrap: 'break-word' }}>ChicCRM</span>
+        <span style={{ color: 'black', fontSize: 30, fontFamily: frontdata[0].font, fontWeight: 500, wordWrap: 'break-word' }}>Welcome to </span>
+        <span style={{ color: `${themedata[0].secondary}` , fontSize: 30, fontFamily: frontdata[0].font, fontWeight: 1000, wordWrap: 'break-word' }}>ChicCRM</span>
     </Box>
           <Box pt={3} ><Image alt="Iconview" src={logocmpany} width={100} height={'auto'}></Image></Box>
           <Button  ><Image alt="Iconview" src={jook} width={300} height={'auto'}></Image></Button>

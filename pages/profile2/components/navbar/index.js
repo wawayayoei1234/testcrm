@@ -10,7 +10,7 @@ import Image from 'next/image';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import chat from '../../../../data/images/Chat Bubble.png'
 import { themedata } from '../../../../data/themedata';
-
+import { frontdata } from '../../../../data/frontdata'; 
 export default function ButtonAppBar() {
   return (
     <Box>

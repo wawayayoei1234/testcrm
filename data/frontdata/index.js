@@ -1,4 +1,4 @@
-export const styledata = [
+export const frontdata = [
     {
         "font": "Avenir"
     }
