@@ -6,6 +6,7 @@ import jook from '../../../../data/images/jookking.png'
 import gg from '../../../../data/images/logogoogle.png'
 import fb from '../../../../data/images/logofacebook.png'
 import az from '../../../../data/images/logoAzure.png'
+import { themedata } from '../../../../data/themedata'; 
 
 function index() {
   return (
@@ -14,18 +15,18 @@ function index() {
         borderRadius: 10,justifyContent:'center',alignItems:'center',}}> 
         <Box sx={{ textAlign: 'center' }}>
         <span style={{ color: 'black', fontSize: 30, fontFamily: 'Avenir', fontWeight: 500, wordWrap: 'break-word' }}>Welcome to </span>
-        <span style={{ color: '#52752F', fontSize: 30, fontFamily: 'Avenir', fontWeight: 1000, wordWrap: 'break-word' }}>ChicCRM</span>
+        <span style={{ color: `${themedata[0].secondary}` , fontSize: 30, fontFamily: 'Avenir', fontWeight: 1000, wordWrap: 'break-word' }}>ChicCRM</span>
     </Box>
           <Box pt={3} ><Image alt="Iconview" src={logocmpany} width={100} height={'auto'}></Image></Box>
           <Box  ><Image alt="Iconview" src={jook} width={300} height={'auto'}></Image></Box>
           <Box sx={{display:'flex'}}>
-          <Box sx={{ width: 50, height: 30, background: 'white', border: '1px #48846B solid', display: 'flex', alignItems: 'center',margin: '0 15px' }} >
+          <Box sx={{ width: 50, height: 30, background: 'white', border: `1px ${themedata[0].secondary} solid`, display: 'flex', alignItems: 'center',margin: '0 15px' }} >
             <Image  alt="Iconview" src={gg} width={15} height={'auto'} style={{ margin: 'auto' }}/>
             </Box>
-          <Box sx={{width: 50, height: 30, background: 'white',  border: '1px #48846B solid', display: 'flex', alignItems: 'center',margin: '0 15px' }} >
+          <Box sx={{width: 50, height: 30, background: 'white',  border: `1px ${themedata[0].secondary} solid`, display: 'flex', alignItems: 'center',margin: '0 15px' }} >
             <Image alt="Iconview" src={fb} width={15} height={'auto'} style={{ margin: 'auto' }}/>
             </Box>
-          <Box sx={{width: 50, height: 30, background: 'white',  border: '1px #48846B solid', display: 'flex', alignItems: 'center',margin: '0 15px' }} >
+          <Box sx={{width: 50, height: 30, background: 'white',  border: `1px ${themedata[0].secondary} solid`, display: 'flex', alignItems: 'center',margin: '0 15px' }} >
             <Image alt="Iconview" src={az} width={15} height={'auto'} style={{ margin: 'auto' }}/>
             </Box>
         </Box>

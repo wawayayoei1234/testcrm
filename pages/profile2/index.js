@@ -5,6 +5,7 @@ import Mobile from './components/mobile'
 import Layout from  '../../components/layout'
 import Navbar from './components/navbar'
 import Conten from './components/conten2'
+import { themedata } from '../../data/themedata';
 
 
 function Index() {

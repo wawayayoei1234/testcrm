@@ -10,20 +10,21 @@ import carenda  from '../../../../data/images/6307184 1.png'
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DateCalendar } from '@mui/x-date-pickers/DateCalendar';
+import { themedata } from '../../../../data/themedata';
 
 export default function () {
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
               <Box pt={3}>
-                  <Box p={3} sx={{width: 260, height: 250, background: '#9CD6B3', borderRadius:5}} >
-                  <Box sx={{ color: '#171717', fontSize: 14, fontFamily: 'Avenir', fontWeight: '40', }}>Clock-in / Clock-out</Box>
-                  <Box sx={{ color: '#171717', fontSize: 24, fontFamily: 'Avenir', fontWeight: '40', }}>Attendance</Box>
+                  <Box p={3} sx={{width: 260, height: 250, background: `${themedata[0].eleven}`, borderRadius:5}} >
+                  <Box sx={{ color: `${themedata[0].ten}`, fontSize: 14, fontFamily: 'Avenir', fontWeight: '40', }}>Clock-in / Clock-out</Box>
+                  <Box sx={{ color: `${themedata[0].ten}`, fontSize: 24, fontFamily: 'Avenir', fontWeight: '40', }}>Attendance</Box>
                   <Box pl={3}><Image alt="Iconview" src={attenden} width={238} height={'auto'}></Image></Box></Box>
               </Box >
               <Box pt={3} >
-                  <Box p={3} sx={{width: 260, height: 250,background: '#97BDFE', borderRadius: 5,}} >
-                  <Box sx={{ color: '#171717', fontSize: 14, fontFamily: 'Avenir', fontWeight: '40', }}>Description</Box>
-                  <Box sx={{ color: '#171717', fontSize: 24, fontFamily: 'Avenir', fontWeight: '40', }}>Notes</Box>
+                  <Box p={3} sx={{width: 260, height: 250,background: `${themedata[0].nine}`, borderRadius: 5,}} >
+                  <Box sx={{ color: `${themedata[0].ten}`, fontSize: 14, fontFamily: 'Avenir', fontWeight: '40', }}>Description</Box>
+                  <Box sx={{ color: `${themedata[0].ten}`, fontSize: 24, fontFamily: 'Avenir', fontWeight: '40', }}>Notes</Box>
                   <Box pl={5} >
                     <Image alt="Iconview" src={note} width={230} height={'auto'}></Image>
                     </Box>
@@ -31,8 +32,8 @@ export default function () {
               </Box>
               <Box pt={3} >
               <Box p={3} sx={{width: 260, height: 250, background: 'white', boxShadow: '0px 13px 68px rgba(0, 0, 0, 0.13)', borderRadius: 5,}}>
-                <Box sx={{ color: '#171717', fontSize: 14, fontFamily: 'Avenir', fontWeight: '40' }}>Description</Box>
-                <Box sx={{ color: '#171717', fontSize: 24, fontFamily: 'Avenir', fontWeight: '40' }}>Company</Box>
+                <Box sx={{ color: `${themedata[0].ten}`, fontSize: 14, fontFamily: 'Avenir', fontWeight: '40' }}>Description</Box>
+                <Box sx={{ color: `${themedata[0].ten}`, fontSize: 24, fontFamily: 'Avenir', fontWeight: '40' }}>Company</Box>
                 <Box p={4} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
                 <Box>
                   <Image alt="Iconview" src={pust} width={100} height={'auto'} />
@@ -42,9 +43,9 @@ export default function () {
             </Box>  
         <Box >
           <Box pt={3}>
-        <Box p={3} sx={{width: 260, height: 250,background: '#97BDFE', borderRadius: 5}} >
-        <div style={{width: '100%', color: '#171717', fontSize: 14, fontFamily: 'Avenir', fontWeight: '400', wordWrap: 'break-word'}}>October 2023</div>
-        <div style={{color: '#171717', fontSize: 24, fontFamily: 'Avenir', fontWeight: '350', wordWrap: 'break-word'}}>Calendar & Activity</div>
+        <Box p={3} sx={{width: 260, height: 250,background: `${themedata[0].nine}`, borderRadius: 5}} >
+        <div style={{width: '100%', color: `${themedata[0].ten}`, fontSize: 14, fontFamily: 'Avenir', fontWeight: '400', wordWrap: 'break-word'}}>October 2023</div>
+        <div style={{color: `${themedata[0].ten}`, fontSize: 24, fontFamily: 'Avenir', fontWeight: '350', wordWrap: 'break-word'}}>Calendar & Activity</div>
          
           </Box>
           </Box>

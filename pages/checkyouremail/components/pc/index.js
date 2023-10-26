@@ -3,27 +3,28 @@ import Image from 'next/image';
 import React, { useState } from 'react'
 import logocmpany from '../../../../data/images/3675555 1.png'
 import Link from 'next/link';
+import { themedata } from '../../../../data/themedata';
 
 function Index() {
   const [otp, setOtp] = useState('');
   return (
-      <Box sx={{background:"linear-gradient(110deg, #84BAA1, #FFFBE2 100%)",height:"100vh",width:'100%'}}>
+      <Box sx={{background:`linear-gradient(${themedata[0].primary}, ${themedata[0].three})`,height:"100vh",width:'100%'}}>
         <Box p={4} sx={{display:'flex',flexDirection:'column', background: 'white',
       borderRadius: 10,justifyContent:'center',alignItems:'center',position:'absolute',top:'50%',left:'50%',transform: 'translate(-50%, -50%)'}}> 
-          <Box sx={{ color: '#171717', fontSize: 25, fontFamily: 'Avenir', fontWeight: '800', 
+          <Box sx={{ color: `${themedata[0].ten}`, fontSize: 25, fontFamily: 'Avenir', fontWeight: '800', 
           wordWrap: 'break-word',}}>Check your Email</Box>
-          <Box pb={3} sx={{color: '#7F8391', fontSize: 15, fontFamily: 'Avenir', fontWeight: '0',textAlign:'center' 
+          <Box pb={3} sx={{color: `${themedata[0].four}`, fontSize: 15, fontFamily: 'Avenir', fontWeight: '0',textAlign:'center' 
           }}>We have sent password to your Email<br></br> 
           ex**e@tracmail.com</Box>
           <Box pb={3} ><Image alt="Iconview" src={logocmpany} width={200} height={'auto'}></Image></Box>       
           <Link href="/login" >
-          <Button  variant='contained'  style={{ fontSize: '12px', padding: '6px 12px',backgroundColor:'#84BAA1',
-          width: '300px', height: 'auto',textTransform:'capitalize', fontFamily: 'Avenir',color:'#fff' }}>Next</Button>
+          <Button  variant='contained'  style={{ fontSize: '12px', padding: '6px 12px',backgroundColor:`${themedata[0].primary}`,
+          width: '300px', height: 'auto',textTransform:'capitalize', fontFamily: 'Avenir',color:`${themedata[0].three}` }}>Next</Button>
           </Link>
         <Box p={2}>
-      <label style={{color:'#7F8391',fontSize: 15, fontFamily: 'Avenir'}}>Didn’t receive password?</label>
+      <label style={{color:`${themedata[0].four}`,fontSize: 15, fontFamily: 'Avenir'}}>Didn’t receive password?</label>
       
-      <Button variant="text" sx={{color:'#48846B',textTransform:'capitalize', fontFamily: 'Avenir'}} >Resend</Button>
+      <Button variant="text" sx={{color:`${themedata[0].secondary}`,textTransform:'capitalize', fontFamily: 'Avenir'}} >Resend</Button>
       
       </Box>
         </Box>
