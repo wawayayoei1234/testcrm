@@ -1,10 +1,10 @@
 import { Box, Button, Checkbox, FormControlLabel, TextField ,InputAdornment} from '@mui/material'
-import { themedata } from '../../../../data/themedata';
+import { themedata } from '@/data/themedata';
 import React, { useState } from 'react';
 import Iconview from '../../../../data/images/Hide.png'
 import Image from 'next/image';
 import Link from 'next/link';
-import { frontdata } from '../../../../data/frontdata'; 
+import { frontdata } from '@/data/frontdata'; 
 
 function index() {
   const [data, setdata] = useState({username:'',password:''})
@@ -44,7 +44,7 @@ function index() {
       <Box p={5} sx={{display:'flex',flexDirection:'column', background: 'white',width:'27%',height:'auto',
       borderRadius: 10,justifyContent:'center',alignItems:'center',position:'absolute',top:'50%',left:'50%',transform: 'translate(-50%, -50%)'}}> 
         <Box>
-        <Box sx={{ color: '#171717', fontSize: 20, fontFamily: frontdata[0].font, fontWeight: '800'}}>Login</Box> 
+        <Box sx={{ color: '#171717', fontSize: 20, fontFamily: frontdata[0].font, fontWeight: 700}}>Login</Box> 
         <Box pb={3} sx={{color: `${themedata[0].four}`, fontSize: 14, fontFamily: frontdata[0].font, textAlign: 'left'}}>Welcome to ChicCRM Please login your<br/>account.</Box>
             <Box pb={1}> <TextField  id="Email" label="Email"placeholder="Enter your email" size='small'  style={{ width: '300px', height: '60px' }} focused color='primary'/></Box>
             <Box> <TextField  id="Password" label="Password" placeholder="6+ strong character" size='small' style={{ width: '300px', height: '60px' }}focused color='primary' 

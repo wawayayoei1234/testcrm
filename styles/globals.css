@@ -1,3 +1,12 @@
+
+@font-face {
+  font-family: 'Avenir Regular';
+  src: url('../data/frontdata/Avenir Regular.ttf') format('truetype');
+  /* สามารถระบุรูปแบบ font อื่น ๆ ที่รองรับด้วย format() */
+}
+
 body{
+  font-family: 'Avenir Regular', sans-serif;
+
   margin: auto;
 }
