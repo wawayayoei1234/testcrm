@@ -6,7 +6,7 @@ function provinces() {
     const [state, setstate] = React.useContext(MyContext);
 
     useEffect(() => {
-        fetch("http://192.168.5.39:8005/provinces", )
+        fetch("http://192.168.5.43:8005/provinces")
             .then(response => response.json())
             .then(result =>  setstate((prevData) => ({ ...prevData, provinces:  result})))
             .catch(error => console.log('error', error));

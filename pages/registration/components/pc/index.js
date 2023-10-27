@@ -8,6 +8,7 @@ import { themedata } from '../../../../data/themedata';
 import { frontdata } from '../../../../data/frontdata'; 
 import {MyContext} from '../../../../context'
 
+
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
@@ -15,6 +16,8 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 function index() {
   const [state, setstate] = React.useContext(MyContext);
   console.log(state)
+  const [amphures, setamphures] = useState([]);
+  const [tambons, setTambons] = useState([]);
   const [zipcodes, setzipcodes] = useState([]);
   const [data, setData] = useState({provinces: '',amphures: '',tambons: '',zipcodes: ''})
 
@@ -23,16 +26,16 @@ const handleProvinceChange = (e) => {
     const selectedProvince = e.target.value;
     setData(prevState => ({ ...prevState, provinces: selectedProvince }));
 
-    fetch(`http://192.168.5.39:8005/amphures/${selectedProvince}`)
+    fetch(`http://192.168.5.43:8005/amphures/${selectedProvince}`)
         .then(response => response.json())
-        .then(result => setAmphures(result))
+        .then(result => setamphures(result))
         .catch(error => console.log('error', error));
 };
 const handleAmphureChange = (e) => {
   const selectedAmphure = e.target.value;
   setData(prevState => ({ ...prevState, amphures: selectedAmphure }));
 
-  fetch(`http://192.168.5.39:8005/tambons/${selectedAmphure}`,)
+  fetch(`http://192.168.5.43:8005/tambons/${selectedAmphure}`,)
     .then(response => response.json())
     .then(result => {
         console.log(result);
@@ -44,7 +47,7 @@ const handleTambonChange = (e) => {
     const selectedTambon = e.target.value;
     setData(prevState => ({ ...prevState, tambons: selectedTambon }));
 
-    fetch(`http://192.168.5.39:8005/zipcodes/${selectedTambon}`,)
+    fetch(`http://192.168.5.43:8005/zipcodes/${selectedTambon}`,)
         .then(response => response.json())
         .then(result => {
             console.log(result);
@@ -119,7 +122,7 @@ const handleTambonChange = (e) => {
             <InputLabel >District</InputLabel>
             <Select label="amphures"   size='small' style={{ width: '300px', height: '40px' }} value={data.amphures || 'Enter City'} onChange={handleAmphureChange}>
             <MenuItem value="Enter City"> Enter City </MenuItem>
-              {state.amphures.map((amphure,index) => (
+              {amphures.map((amphure,index) => (
                   <MenuItem key={`${index}`} value={amphure.id}>
                       {amphure.name}
                   </MenuItem>))}
@@ -134,7 +137,7 @@ const handleTambonChange = (e) => {
             <InputLabel >Sub-District</InputLabel>
             <Select label="tambons" style={{ width: '300px', height: '40px' }} size='small' value={data.tambons || 'Enter District'} onChange={handleTambonChange}>
             <MenuItem value="Enter District"> Enter District </MenuItem>
-                    {state.tambons.map((tambon,index) => (
+            {tambons.map((tambon,index) => (
                       <MenuItem key={`${index}`} value={tambon.id}>
                     {tambon.name}
                   </MenuItem>))}
@@ -145,7 +148,7 @@ const handleTambonChange = (e) => {
         <Box sx={{display: 'flex', justifyContent: 'center', mb:3}}>
         <Button variant="contained" onClick={()=>{setstate((prevData) => ({ ...prevData, open:  true}))}}  sx={{color:'white', textTransform:'capitalize', width: '200px', height: 'auto'}}>Next</Button>
         <Box>
-          <Dialog fullScreen open={open} onClose={()=>{setstate((prevData) => ({ ...prevData, open:  false}))}} TransitionComponent={Transition}>
+          <Dialog fullScreen onClose={()=>{setstate((prevData) => ({ ...prevData, open:  false}))}} TransitionComponent={Transition}>
             <Box p={2}>
                    <Box sx={{ color: `${themedata[0].ten}`, fontSize: 25, fontFamily: frontdata[0].font, fontWeight: '400', wordWrap: 'break-word'}}>User Registration</Box>
           <Box pb={3} sx={{color:  `${themedata[0].four}`, fontSize: 15, fontFamily: frontdata[0].font, fontWeight: '0', textAlign: 'left'}}>
@@ -209,7 +212,7 @@ const handleTambonChange = (e) => {
             <FormControlLabel control={<Checkbox />} label="Confirm information is correct" />
           </Box>
           <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-              <Button variant="outlined" onClick={handleClose} sx={{width:'30%'}}>Back</Button>
+              <Button variant="outlined" onClick={()=>{setstate((prevData) => ({ ...prevData, open:  false}))}} sx={{width:'30%'}}>Back</Button>
               <Box p={1}/>
               <Button LinkComponent={Link} href='/checkyouremail' variant="contained"sx={{width:'30%'}} >Confirm</Button>
             </Box>
