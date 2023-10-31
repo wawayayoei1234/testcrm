@@ -1,5 +1,5 @@
-import '../styles/globals.css'
-import theme from '../utils/theme'
+import '@/assets/css/globals.css'
+import theme from '@/utils/theme'
 import { Box, ThemeProvider } from '@mui/material'
 import { MyProvider } from '@/context';
 import localFont from 'next/font/local';

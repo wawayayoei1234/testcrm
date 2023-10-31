@@ -3,7 +3,12 @@
     "baseUrl": "./",
     "paths": {
       "@/*": ["./*"],
-      "@/data": ["./data"]
+      "@/data": ["./data"],
+      "@/context": ["./context"],
+      "@/components": ["./components"],
+      "@/services": ["./services"],
+      "@/assets": ["./assets"],
+      "@/utils": ["./utils"]
     }
   }  
 }

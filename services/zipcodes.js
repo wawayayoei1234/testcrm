@@ -4,10 +4,12 @@ import React, { useEffect } from 'react'
 function zipcodes() {
     const [state, setstate] = React.useContext(MyContext);
     useEffect(() => {
-        fetch(`http://192.168.5.39:8005/zipcodes/${selectedTambon}`,)
+        fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT_GET}:${process.env.NEXT_PUBLIC_API_PORT_GET}/zipcodes/${selectedTambon}`,)
         .then(response => response.json())
         .then(result => setstate((prevData) => ({ ...prevData, zipcodes:  result})))
-        .catch(error => console.log('error', error));
+        .catch(error => {
+          setstate((prevData) => ({ ...prevData, alert:true,errordetail:  "Unable to connect to the server! Please check the server."}))
+        });
     },[]);
   return (
    null
