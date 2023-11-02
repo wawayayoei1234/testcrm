@@ -12,11 +12,13 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import { themedata } from '@/data/themedata';
 import { frontdata } from '@/data/frontdata';
 import { Box } from '@mui/material';
+import { useRouter } from 'next/router';
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
 export default function AlertDialogSlide() {
+  const router = useRouter();
     const [state, setstate] = React.useContext(MyContext);
 
   return (
@@ -26,7 +28,10 @@ export default function AlertDialogSlide() {
             <Box sx={{color:`${themedata[0].black}`,textTransform:'capitalize',textAlign:"center", fontFamily: frontdata[0].font,fontSize: 16,fontWeight:400}}>{state.alert? state.errordetail:""}</Box>
         </DialogContent>
         <DialogActions sx={{pb:2,display:"flex",justifyContent:"center",alignItems:"center"}}>
-          <Button onClick={()=>{setstate((prevData) => ({ ...prevData, alert:  false,loading:false,btlogin:false,btchangepass:false,access_token:undefined}))}} style={{ fontSize: '16px', padding: '6px 12px',
+          <Button onClick={()=>{
+            setstate((prevData) => ({ ...prevData, alert:  false,loading:false,btlogin:false,btchangepass:false}))
+            router.push(state.url_alert);
+          }} style={{ fontSize: '16px', padding: '6px 12px',
           backgroundColor:`${themedata[0].primary}`,width: '100px', height: 'auto',textTransform:'capitalize', fontFamily: frontdata[0].font,color:`${themedata[0].three}` }}>OK</Button>
         </DialogActions>
       </Dialog>

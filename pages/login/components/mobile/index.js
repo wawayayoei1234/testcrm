@@ -8,17 +8,13 @@ import { frontdata } from '../../../../data/frontdata';
 import { MyContext } from '@/context';
 import { useRouter } from 'next/router';
 import Loading from '@/components/loading'
+import useHandleClick from '@/hook/login';
 
 function index() {
   const [state, setstate] = React.useContext(MyContext);
   const router = useRouter();
-  const isFormValid = state.username && state.password && state.username.trim() !== '' && state.password.trim() !== '';
+  const handleClick = useHandleClick();
 
-  useEffect(() => {
-    if (state.access_token.length === undefined) {
-      router.push('/resetpassword');
-    }
-  }, [state.access_token]);
   return (
     <>
        <Box sx={{display:{xs:'flex',md:'none'},height:"100vh",width:'100%'}}> 
@@ -48,12 +44,7 @@ function index() {
         {/* //!remember and forgot */}
 
         {/* //?button */}
-        <Button variant='contained' onClick={()=>{ 
-          if (isFormValid) {
-            setstate((prevData) => ({ ...prevData, btlogin: true,loading:true }));
-          } else {
-            setstate((prevData) => ({ ...prevData, alert: true,errordetail:"Please fill in both Email and Password fields." }));
-          }}} style={{ fontSize: '12px', padding: '6px 12px',backgroundColor:`${themedata[0].primary}`,width: '300px', height: 'auto',textTransform:'capitalize', fontFamily: frontdata[0].font,color:`${themedata[0].three}` }}>{state.loading?<Loading/>:"Next"}</Button>
+        <Button variant='contained' onClick={handleClick} style={{ fontSize: '12px', padding: '6px 12px',backgroundColor:`${themedata[0].primary}`,width: '300px', height: 'auto',textTransform:'capitalize', fontFamily: frontdata[0].font,color:`${themedata[0].three}` }}>{state.loading?<Loading/>:"Next"}</Button>
         <Box p={1}>
         <label style={{color:`${themedata[0].four}`,fontSize: "13px", fontFamily: frontdata[0].font}}>Don't have an account?</label>
         <Button variant="text" sx={{color:`${themedata[0].secondary}`,textTransform:'capitalize', fontFamily: frontdata[0].font}} >Sign up</Button>

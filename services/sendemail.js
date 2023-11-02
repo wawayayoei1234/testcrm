@@ -6,7 +6,7 @@ export default function Login(props) {
 
     useEffect(() => {
       async function fetchData() {
-        if(state.access_token.length === undefined){
+        if(state.decode_token.length === undefined){
           if (state.btchangepass) {
           var myHeaders = new Headers();
           myHeaders.append("Content-Type", "application/json");
