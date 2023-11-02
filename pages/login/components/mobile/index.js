@@ -9,6 +9,8 @@ import { MyContext } from '@/context';
 import { useRouter } from 'next/router';
 import Loading from '@/components/loading'
 import useHandleClick from '@/hook/login';
+import { buttontext } from '@/data/buttondata';
+import { LoginText } from '@/data/metadata';
 
 function index() {
   const [state, setstate] = React.useContext(MyContext);
@@ -22,10 +24,10 @@ function index() {
         
         {/* //*title */}
         <Box>
-        <Box pt={2} sx={{ color: '#171717', fontSize: 16, fontFamily: frontdata[0].font, fontWeight: '800'}}>Login</Box> 
-        <Box pb={3} pt={2} sx={{color: `${themedata[0].four}`, fontSize: "13px", fontFamily: frontdata[0].font, textAlign: 'left'}}>Welcome to ChicCRM Please login your<br/>account.</Box>
-          <Box pb={1}><TextField onChange={(e)=>{setstate((prevData) => ({ ...prevData, username:  e.target.value}))}}  id="Email" label="Email"placeholder="Enter your email" size='small'  style={{ width: '300px', height: '60px' }} focused color='primary'/></Box>
-          <Box><TextField type={state.showPassword ? 'text' : 'password'} onChange={(e)=>{setstate((prevData) => ({ ...prevData, password:  e.target.value}))}}  id="Password" label="Password" placeholder="6+ strong character" size='small' style={{ width: '300px', height: '60px' }}focused color='primary' 
+        <Box pt={2} sx={{ color: '#171717', fontSize: 16, fontFamily: frontdata[0].font, fontWeight: '800'}}>{LoginText[0].title}</Box> 
+        <Box pb={3} pt={2} sx={{color: `${themedata[0].four}`, fontSize: "13px", fontFamily: frontdata[0].font, textAlign: 'left'}} dangerouslySetInnerHTML={{ __html: LoginText[0].description }}/>
+          <Box pb={1}><TextField onChange={(e)=>{setstate((prevData) => ({ ...prevData, username:  e.target.value}))}}  id="Email" label={LoginText[0].InputEmail}placeholder="Enter your email" size='small'  style={{ width: '300px', height: '60px' }} focused color='primary'/></Box>
+          <Box><TextField type={state.showPassword ? 'text' : 'password'} onChange={(e)=>{setstate((prevData) => ({ ...prevData, password:  e.target.value}))}}  id="Password" label={LoginText[0].password} placeholder="6+ strong character" size='small' style={{ width: '300px', height: '60px' }}focused color='primary' 
              InputProps={{
              endAdornment: (
              <InputAdornment position="end">
@@ -38,16 +40,16 @@ function index() {
         {/* //!remember and forgot */}
         <Box width="100%" display="flex" justifyContent="space-between">
           <FormControlLabel control={<Checkbox onClick={()=>{setstate((prevData) => ({ ...prevData, remember: !state.remember }));}}/>}
-          label="Remember for 30 day"sx={{'& .MuiSvgIcon-root': { fontSize: 16 },' & .MuiTypography-root': { fontSize: "12px", fontFamily: frontdata[0].font } }}/>
-          <Button variant="text"sx={{color:`${themedata[0].secondary}`,textTransform:'capitalize', fontFamily: frontdata[0].font,fontSize: "12px",}} >Forgot password</Button>
+          label={LoginText[0].remember}sx={{'& .MuiSvgIcon-root': { fontSize: 16 },' & .MuiTypography-root': { fontSize: "12px", fontFamily: frontdata[0].font } }}/>
+          <Button variant="text"sx={{color:`${themedata[0].secondary}`,textTransform:'capitalize', fontFamily: frontdata[0].font,fontSize: "12px",}} >{LoginText[0].forgot}</Button>
         </Box>
         {/* //!remember and forgot */}
 
         {/* //?button */}
         <Button variant='contained' onClick={handleClick} style={{ fontSize: '12px', padding: '6px 12px',backgroundColor:`${themedata[0].primary}`,width: '300px', height: 'auto',textTransform:'capitalize', fontFamily: frontdata[0].font,color:`${themedata[0].three}` }}>{state.loading?<Loading/>:"Next"}</Button>
         <Box p={1}>
-        <label style={{color:`${themedata[0].four}`,fontSize: "13px", fontFamily: frontdata[0].font}}>Don't have an account?</label>
-        <Button variant="text" sx={{color:`${themedata[0].secondary}`,textTransform:'capitalize', fontFamily: frontdata[0].font}} >Sign up</Button>
+        <label style={{color:`${themedata[0].four}`,fontSize: "13px", fontFamily: frontdata[0].font}}>{LoginText[0].textnewaccount}</label>
+        <Button onClick={()=>{router.push('/registration');}} variant="text" sx={{color:`${themedata[0].secondary}`,textTransform:'capitalize', fontFamily: frontdata[0].font}} >{LoginText[0].signup}</Button>
         </Box>
         {/* //?button */}
       </Box>

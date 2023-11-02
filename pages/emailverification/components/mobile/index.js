@@ -8,6 +8,8 @@ import Loading from '@/components/loading'
 import HandleConfirm from '@/hook/confirmotp'
 import HandleResend from '@/hook/resendcode'
 import UseEFOTP from '@/services/useefotp'
+import { buttontext } from '@/data/buttondata';
+import { OTPText } from '@/data/metadata';
 
 function Index() {
   const [state, setstate] = React.useContext(MyContext);
@@ -21,9 +23,9 @@ function Index() {
         borderRadius: 10,justifyContent:'center',alignItems:'center',position:'absolute',top:'50%',left:'50%',
         transform: 'translate(-50%, -50%)'}}> 
           <Box sx={{ color: `${themedata[0].ten}`, fontSize: 20, fontFamily: frontdata[0].font, fontWeight: '800', 
-          wordWrap: 'break-word',}}>Email Verification</Box>
+          wordWrap: 'break-word',}}>{OTPText[0].title}</Box>
           <Box pb={3} sx={{color: `${themedata[0].four}`, fontSize: 15, fontFamily: frontdata[0].font, fontWeight: '0', 
-          textAlign: 'center'}}>We have sent code to your Email <strong>{state.decode_token.email}</strong></Box>
+          textAlign: 'center'}}>{OTPText[0].description} <strong>{state.decode_token.email}</strong></Box>
           <Box pb={3} >
           <OtpInput
           className='otp-input-container'
@@ -36,10 +38,10 @@ function Index() {
           />
           </Box>
           <Button disabled={state.loading?true:false} onClick={handleclick} variant='contained'  style={{ fontSize: '12px', padding: '6px 12px',backgroundColor:`${themedata[0].primary}`,
-          width: '300px', height: 'auto',textTransform:'capitalize', fontFamily: frontdata[0].font,color:`${themedata[0].three}` }}>{state.loading?<Loading/>:"Next"}</Button>
+          width: '300px', height: 'auto',textTransform:'capitalize', fontFamily: frontdata[0].font,color:`${themedata[0].three}` }}>{state.loading?<Loading/>:buttontext[0].text}</Button>
           <Box pt={2}>
-            <span style={{color:`${themedata[0].four}`,fontSize: 15, fontFamily: frontdata[0].font}}>Didn’t receive code?</span>
-            <Button disabled={state.timer > 0?true:false} onClick={handleResend} variant="text" sx={{color:`${themedata[0].secondary}`,textTransform:'capitalize', fontFamily: frontdata[0].font}} >{state.timer > 0? `Resend (${state.timer})`:"Resend"}</Button>
+            <span style={{color:`${themedata[0].four}`,fontSize: 15, fontFamily: frontdata[0].font}}>{OTPText[0].nocode}</span>
+            <Button disabled={state.timer > 0?true:false} onClick={handleResend} variant="text" sx={{color:`${themedata[0].secondary}`,textTransform:'capitalize', fontFamily: frontdata[0].font}} >{state.timer > 0? `${OTPText[0].Resend} (${state.timer})`:OTPText[0].Resend}</Button>
           </Box> 
         </Box>
       </Box>  

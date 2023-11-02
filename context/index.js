@@ -7,7 +7,7 @@ import SendEmail from '@/services/sendemail'
 import Alert from '@/components/alert'
 import {Checkvalueinfield}  from '@/utils/checkvalueinfield';
 import Timeoutcallback from '@/services/timeoutcallback';
-import SetTimeout from '@/services/setTimeout';
+import SetTimeout from '@/services/settimeout';
 export const MyContext = createContext();
 export const MyProvider = (props) => {
   const { children } = props;
@@ -15,7 +15,7 @@ export const MyProvider = (props) => {
   "amphures":[],"Tambons":[],"zipcode":[],"open":false,"username":"","password":"" ,"btlogin":false,btchangepass:false,"showPassword":false,
   "decode_token":[],"bearer_token":[],"oldpassword":"","newpassword":"","confirmpassword":"","alert":false,"errordetail":"","isFormValid":false,
   "showPassword":false,"remember":false,"loading":false,"status":false,"url_alert":"","btverify":false,"otp":"","timer": 0,"timeOutCallback": null,
-  "disabledbt":false
+  "disabledbt":false,showNewPassword:false,showConPassword:false
 });
 
   return (
