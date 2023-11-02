@@ -8,20 +8,19 @@ import fb from 'data/images/logofacebook.png'
 import az from 'data/images/logoAzure.png'
 import { themedata } from '@/data/themedata'; 
 import { frontdata } from '@/data/frontdata'; 
-import { useRouter } from 'next/router'
 import { useSession } from "next-auth/react";
 import HandleSignIn from "@/hook/loginwelcom"
+import Uf from '@/services/usefwelcome'
 
 function index() {
   const { data: session } = useSession();
   const handleSignIn= HandleSignIn();
-  const router = useRouter();
-  useEffect(() => {
-    if (session) {
-      router.push('/profile');
-    }
-  }, [session]);
+  
   return (
+    <>
+    <Uf/>
+    {!session? 
+    <>
     <Box   sx={{display:'flex',justifyContent:"center",alignItems:"center",height:"100vh" }}>
         <Box p={3} sx={{display:'flex',flexDirection:'column', background: 'white',width:'auto',height:'60%',
         borderRadius: 10,justifyContent:'center',alignItems:'center',}}> 
@@ -44,6 +43,10 @@ function index() {
         </Box>
       </Box> 
       </Box> 
+      </>
+       :""
+      }
+      </>
   )
 }
 export default index

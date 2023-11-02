@@ -3,8 +3,7 @@ import { Box,useMediaQuery } from '@mui/material';
 import Body from './components/pc'
 import Mobile from './components/mobile'
 import Layout from  '../../components/layout'
-import { themedata} from '../../data/themedata';
-
+import { themedata} from '/data/themedata';
 function Index() {
   const matches = useMediaQuery('(min-width:960px)') 
   return (

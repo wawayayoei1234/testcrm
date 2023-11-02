@@ -2,8 +2,8 @@ import { Box, Button, TextField } from '@mui/material'
 import Link from 'next/link';
 import React, { useState } from 'react'
 import OtpInput from 'react-otp-input';
-import { themedata } from '../../../../data/themedata';
-import { frontdata } from '../../../../data/frontdata'; 
+import { themedata } from 'data/themedata';
+import { frontdata } from 'data/frontdata'; 
 function Index() {
   const [otp, setOtp] = useState('');
   return (
