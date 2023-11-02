@@ -15,7 +15,7 @@ const theme = createTheme({
     four: {
       main: themedata[0].four,
     },
-    four: {
+    five: {
       main: themedata[0].five,
     },
     six: {

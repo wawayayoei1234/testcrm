@@ -1,22 +1,21 @@
-import * as React from 'react';;
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
+import React from 'react';
+import { Box, Button } from '@mui/material';
 import Image from 'next/image';
-import attenden from '../../../../data/images/7125203 1.png'
-import note  from '../../../../data/images/6306500 1.png'
-import pust  from '../../../../data/images/Group.png'
-import carenda  from '../../../../data/images/6307184 1.png'
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DateCalendar } from '@mui/x-date-pickers/DateCalendar';
 import Link from 'next/link';
-import { themedata } from '../../../../data/themedata';
-import { frontdata } from '../../../../data/frontdata'; 
+import attenden from 'data/images/7125203 1.png';
+import note from 'data/images/6306500 1.png';
+import pust from 'data/images/Group.png';
+import carenda from 'data/images/6307184 1.png';
+import { themedata } from 'data/themedata';
+import { frontdata } from 'data/frontdata'; 
+
 export default function () {
   return (
-    <Box >
-        <Box sx={{display:'flex',justifyContent:'center',}}>
+    <Box sx={{display:{xs:"none",md:'flex'},flexDirection:'column'}} >
+        <Box sx={{display:'flex',justifyContent:'center'}}>
               <Box p={4}>
                   <Box p={3} sx={{width: 260, height: 250, background: `${themedata[0].eleven}`, borderRadius:5}} >
                   <Box sx={{ color: `${themedata[0].ten}`, fontSize: 14, fontFamily: frontdata[0].font, fontWeight: '40', }}>Clock-in / Clock-out</Box>

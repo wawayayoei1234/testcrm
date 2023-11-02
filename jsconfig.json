@@ -1,7 +1,12 @@
 {
   "compilerOptions": {
+    "baseUrl": "./",
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+      "@/data": ["./data"],
+      "@/hook": ["./hook"],
+      "@/utils": ["./utils"],
+      "@/services": ["./services"],
     }
-  }
+  }  
 }

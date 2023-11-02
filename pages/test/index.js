@@ -1,36 +1,46 @@
-import { Box} from '@mui/material'
-import Image from 'next/image';
-import React, { useState } from 'react'
-import logocmpany from '../../data/images/img_v2_54c80a1a-4593-400d-bf42-ab1f26031f1h 2.png'
-import jook from '../../data/images/jookking.png'
-import gg from '../../data/images/logogoogle.png'
-import fb from '../../data/images/logofacebook.png'
-import az from '../../data/images/logoAzure.png'
+import { TextField, Button, Checkbox, FormControlLabel, Typography, Link, Container } from '@mui/material';
 
-function index() {
+export default function LoginPage() {
   return (
-    <Box   sx={{display:'flex',justifyContent:"center",alignItems:"center",height:"100vh" }}>
-        <Box p={10} sx={{display:'flex',flexDirection:'column', background: 'white',width:'auto',
-        borderRadius: 10,justifyContent:'center',alignItems:'center',}}> 
-        <Box sx={{ textAlign: 'center' }}>
-        <span style={{ color: 'black', fontSize: 30, fontFamily: 'Avenir', fontWeight: 500, wordWrap: 'break-word' }}>Welcome to </span>
-        <span style={{ color: '#52752F', fontSize: 30, fontFamily: 'Avenir', fontWeight: 1000, wordWrap: 'break-word' }}>ChicCRM</span>
-    </Box>
-          <Box pt={3} ><Image alt="Iconview" src={logocmpany} width={100} height={'auto'}></Image></Box>
-          <Box  ><Image alt="Iconview" src={jook} width={300} height={'auto'}></Image></Box>
-          <Box sx={{display:{xs:'none',md:'flex'}}}>
-          <Box sx={{ width: 50, height: 30, background: 'white', border: '1px #48846B solid', display: 'flex', alignItems: 'center',margin: '0 15px' }} >
-            <Image  alt="Iconview" src={gg} width={15} height={'auto'} style={{ margin: 'auto' }}/>
-            </Box>
-          <Box sx={{width: 50, height: 30, background: 'white',  border: '1px #48846B solid', display: 'flex', alignItems: 'center',margin: '0 15px' }} >
-            <Image alt="Iconview" src={fb} width={15} height={'auto'} style={{ margin: 'auto' }}/>
-            </Box>
-          <Box sx={{width: 50, height: 30, background: 'white',  border: '1px #48846B solid', display: 'flex', alignItems: 'center',margin: '0 15px' }} >
-            <Image alt="Iconview" src={az} width={15} height={'auto'} style={{ margin: 'auto' }}/>
-            </Box>
-        </Box>
-      </Box> 
-      </Box> 
-  )
+    <Container component="main" maxWidth="xs" sx={{ display: 'flex', alignItems: 'center', height: '100vh', backgroundColor: '#e0f2f1' }}>
+      <div style={{ width: '100%', padding: '40px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)', borderRadius: 10, backgroundColor: 'white' }}>
+        <Typography variant="h5" gutterBottom align="center" mb={3}>Login</Typography>
+        <Typography variant="body2" align="center" mb={4}>Welcome to ChiCRM! Please login your account.</Typography>
+        
+        <TextField
+          fullWidth
+          label="Email"
+          variant="outlined"
+          placeholder="Enter your email"
+          margin="normal"
+        />
+        <TextField
+          fullWidth
+          label="Password"
+          variant="outlined"
+          type="password"
+          placeholder="8+ strong character"
+          margin="normal"
+        />
+        <FormControlLabel
+          control={<Checkbox color="primary" />}
+          label="Remember for 30 days"
+        />
+
+        <Button variant="contained" color="primary" fullWidth style={{ margin: '20px 0' }}>
+          Next
+        </Button>
+
+        <Typography variant="body2" align="right" mb={1}>
+          <Link href="#" color="primary" underline="hover">
+            Forgot password
+          </Link>
+        </Typography>
+        
+        <Typography variant="body2" align="center">
+          Don't have an account? <Link href="#" color="primary" underline="hover">Sign up</Link>
+        </Typography>
+      </div>
+    </Container>
+  );
 }
-export default index

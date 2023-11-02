@@ -1,7 +1,5 @@
 import * as React from 'react';;
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
 import Image from 'next/image';
 import attenden from '../../../../data/images/7125203 1.png'
 import note  from '../../../../data/images/6306500 1.png'

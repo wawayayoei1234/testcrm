@@ -8,7 +8,6 @@ import { themedata } from '../../../../data/themedata';
 import { frontdata } from '../../../../data/frontdata'; 
 import {MyContext} from '../../../../context'
 
-
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
@@ -16,17 +15,13 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 function index() {
   const [state, setstate] = React.useContext(MyContext);
   console.log(state)
-  const [amphures, setamphures] = useState([]);
-  const [tambons, setTambons] = useState([]);
-  const [zipcodes, setzipcodes] = useState([]);
-  const [data, setData] = useState({provinces: '',amphures: '',tambons: '',zipcodes: ''})
 
 
 const handleProvinceChange = (e) => {
     const selectedProvince = e.target.value;
     setData(prevState => ({ ...prevState, provinces: selectedProvince }));
 
-    fetch(`http://192.168.5.43:8005/amphures/${selectedProvince}`)
+    fetch(`http://192.168.5.39:8005/amphures/${selectedProvince}`)
         .then(response => response.json())
         .then(result => setamphures(result))
         .catch(error => console.log('error', error));
@@ -35,7 +30,7 @@ const handleAmphureChange = (e) => {
   const selectedAmphure = e.target.value;
   setData(prevState => ({ ...prevState, amphures: selectedAmphure }));
 
-  fetch(`http://192.168.5.43:8005/tambons/${selectedAmphure}`,)
+  fetch(`http://192.168.5.39:8005/tambons/${selectedAmphure}`,)
     .then(response => response.json())
     .then(result => {
         console.log(result);
@@ -47,7 +42,7 @@ const handleTambonChange = (e) => {
     const selectedTambon = e.target.value;
     setData(prevState => ({ ...prevState, tambons: selectedTambon }));
 
-    fetch(`http://192.168.5.43:8005/zipcodes/${selectedTambon}`,)
+    fetch(`http://192.168.5.39:8005/zipcodes/${selectedTambon}`,)
         .then(response => response.json())
         .then(result => {
             console.log(result);
@@ -102,7 +97,7 @@ const handleTambonChange = (e) => {
             <Grid  xs={4}>
             <FormControl >
             <InputLabel >State / Provice</InputLabel>
-            <Select label="provinces" style={{ width: '300px', height: '40px' }} size='small' value={data.provinces || '- Select State/Provice -'} onChange={handleProvinceChange} focused color='primary' >
+            <Select label="provinces" style={{ width: '300px', height: '40px' }} size='small' value={state.provinces || '- Select State/Province -'} onChange={handleProvinceChange} focused color='primary' >
             <MenuItem  value="- Select State/Provice -" >- Select State/Provice -</MenuItem>
               {state.provinces.map((province,index) => (
                 <MenuItem key={`${index}`} value={province.id}>
@@ -120,7 +115,7 @@ const handleTambonChange = (e) => {
             <Grid  xs={4}>
             <FormControl >
             <InputLabel >District</InputLabel>
-            <Select label="amphures"   size='small' style={{ width: '300px', height: '40px' }} value={data.amphures || 'Enter City'} onChange={handleAmphureChange}>
+            <Select label="amphures"   size='small' style={{ width: '300px', height: '40px' }} value={state.amphures || 'Enter City'} onChange={handleAmphureChange}>
             <MenuItem value="Enter City"> Enter City </MenuItem>
               {amphures.map((amphure,index) => (
                   <MenuItem key={`${index}`} value={amphure.id}>
@@ -135,7 +130,7 @@ const handleTambonChange = (e) => {
             <Grid  xs={4}>
             <FormControl >
             <InputLabel >Sub-District</InputLabel>
-            <Select label="tambons" style={{ width: '300px', height: '40px' }} size='small' value={data.tambons || 'Enter District'} onChange={handleTambonChange}>
+            <Select label="tambons" style={{ width: '300px', height: '40px' }} size='small' value={state.tambons || 'Enter District'} onChange={handleTambonChange}>
             <MenuItem value="Enter District"> Enter District </MenuItem>
             {tambons.map((tambon,index) => (
                       <MenuItem key={`${index}`} value={tambon.id}>
