@@ -32,7 +32,12 @@ function useHandleClick() {
           if(result.status === "OK"){
             const decodedToken = JSON.parse(atob(result.token.split('.')[1]));
             setstate((prevData) => ({ ...prevData, decode_token: decodedToken, bearer_token: result.token,loading:false}));
-            router.push('/resetpassword');
+            if(decodedToken.requires_action==="change_password"){
+              router.push('/resetpassword');
+            }else{
+              router.push('/emailverification');
+              setstate((prevData) => ({ ...prevData, btverify: true}));
+            }
           }else{
             setstate((prevData) => ({ ...prevData, alert: true,errordetail: result.message }));
           }

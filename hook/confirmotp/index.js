@@ -1,18 +1,17 @@
 import { MyContext } from '@/context';
-import { env } from '@/next.config';
-import React, { useEffect } from 'react'
+import { useRouter } from 'next/router';
+import React from 'react'
 
-export default function Login(props) {
+function index() {
     const [state, setstate] = React.useContext(MyContext);
+    const router = useRouter();
 
-    useEffect(() => {
-      if(state.btverify){
-        setstate((prevData) => ({ ...prevData, loading: true}));
+    const handleclick = ()=>{
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
         
         var raw = JSON.stringify({
-          "email": state.decode_token.email
+          "otp": parseInt(state.otp)
         });
         
         var requestOptions = {
@@ -22,20 +21,18 @@ export default function Login(props) {
           redirect: 'follow'
         };
         
-        fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT_SENDMAIL}:${process.env.NEXT_PUBLIC_API_PORT_SENDMAIL}/send-otp`, requestOptions)
+        fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT_SENDMAIL}:${process.env.NEXT_PUBLIC_API_PORT_SENDMAIL}/validate-otp`, requestOptions)
           .then(response => response.json())
           .then(result => {
             if(result.status==="OK"){
-              setstate((prevData) => ({ ...prevData, loading: false}));
+              router.push('/profile');
             }else{
               setstate((prevData) => ({ ...prevData, alert: true,errordetail: result.message }));
             }
           })
-          .catch(error => {
-            setstate((prevData) => ({ ...prevData, alert: true,errordetail: error }));
-          });
-      }
-    }, [state.btverify]); 
-    
-    return null;
+          .catch(error => console.log('error', error));
+    }
+  return handleclick;
 }
+
+export default index

@@ -4,9 +4,11 @@ import { themedata } from '../../../../data/themedata';
 import { frontdata } from '../../../../data/frontdata'; 
 import { MyContext } from '@/context';
 import { useRouter } from 'next/router';
+import useHandleClick from '@/hook/resetpassword';
 function Index() {
   const [state, setstate] = React.useContext(MyContext);
   const router = useRouter();
+  const handleClick = useHandleClick();
 
   return (
     <>
@@ -20,7 +22,7 @@ function Index() {
           <TextField onChange={(e)=>{setstate((prevData) => ({ ...prevData, oldpassword:  e.target.value}))}}  id="Old password" label="Old password"placeholder="old password" size='small'  style={{ width: '300px', height: '60px'}} focused color='primary'/>
           <TextField onChange={(e)=>{setstate((prevData) => ({ ...prevData, newpassword:  e.target.value}))}}  id="New password" label="New password"placeholder="new password" size='small'  style={{ width: '300px', height: '60px'}} focused color='primary'/>
           <TextField onChange={(e)=>{setstate((prevData) => ({ ...prevData, confirmpassword:  e.target.value}))}} id="Confirm new password" label="Confirm new password"placeholder="repeat password" size='small'  style={{ width: '300px', height: '60px'}} focused color='primary'/>       
-          <Button onClick={()=>{setstate((prevData) => ({ ...prevData, btchangepass:  true}))}}  variant='contained'  style={{ fontSize: '12px', padding: '6px 12px',backgroundColor:`${themedata[0].primary}`,
+          <Button onClick={handleClick}  variant='contained'  style={{ fontSize: '12px', padding: '6px 12px',backgroundColor:`${themedata[0].primary}`,
           width: '300px', height: 'auto',textTransform:'capitalize', fontFamily: frontdata[0].font,color:`${themedata[0].three}` }}>Reset Password</Button>
         </Box>
       </Box>  

@@ -22,7 +22,7 @@ export default function AlertDialogSlide() {
     const [state, setstate] = React.useContext(MyContext);
 
   return (
-      <Dialog PaperProps={{ sx: { borderRadius: "7px" } }} open={state.alert} TransitionComponent={Transition} keepMounted onClose={()=>{setstate((prevData) => ({ ...prevData, alert:  false}))}}>
+      <Dialog PaperProps={{ sx: { borderRadius: "7px" } }} open={state.alert} TransitionComponent={Transition} keepMounted >
         <DialogTitle sx={{display:"flex",justifyContent:"center",alignItems:"center"}}>{!state.status?<ErrorIcon style={{fontSize:"60px"}} color="error"/>:<CheckCircleIcon style={{fontSize:"60px"}} color="success"/>}</DialogTitle>
         <DialogContent sx={{display:"flex",justifyContent:"center",alignItems:"center"}}>
             <Box sx={{color:`${themedata[0].black}`,textTransform:'capitalize',textAlign:"center", fontFamily: frontdata[0].font,fontSize: 16,fontWeight:400}}>{state.alert? state.errordetail:""}</Box>
