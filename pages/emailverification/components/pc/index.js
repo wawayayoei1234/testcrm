@@ -34,6 +34,9 @@ function Index() {
           <span style={{color:`${themedata[0].four}`,fontSize: 15, fontFamily: frontdata[0].font}}>{OTPText[0].nocode}</span>
           <Button disabled={state.timer > 0?true:false} onClick={handleResend} variant="text" sx={{color:`${themedata[0].secondary}`,textTransform:'capitalize', fontFamily: frontdata[0].font}}>{state.timer > 0? `${OTPText[0].Resend} (${state.timer})`:OTPText[0].Resend}</Button>
         </Box> 
+        <Box>
+          <Button  onClick="" variant="text" sx={{color:`${themedata[0].secondary}`,textTransform:'capitalize', fontFamily: frontdata[0].font}}>{OTPText[0].tryanother}</Button>
+        </Box>
         </Box>
       </Box> 
       </>

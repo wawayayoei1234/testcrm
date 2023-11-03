@@ -26,5 +26,6 @@ export const OTPText = [
         "description":"We have sent code to your Email",
         "nocode":"Didn’t receive code?",
         "Resend":"Resend",
+        "tryanother":"Try another"
     }
 ]

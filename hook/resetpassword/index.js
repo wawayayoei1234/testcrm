@@ -25,7 +25,7 @@ export default function useHandleClick(props) {
            .then(response => response.json())
            .then(result => {
               if(result.status==="OK"){
-                setstate((prevData) => ({ ...prevData, alert: true,errordetail: result.message,status:true,url_alert:"/emailverification" }));
+                setstate((prevData) => ({ ...prevData, alert: true,errordetail: result.message,status:true,btverify:true,url_alert:"/emailverification", }));
               }else{
                 setstate((prevData) => ({ ...prevData, alert: true,errordetail: result.message,status:false }));
               }
