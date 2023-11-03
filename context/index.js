@@ -16,7 +16,7 @@ export const MyProvider = (props) => {
   "decode_token":[],"bearer_token":[],"oldpassword":"","newpassword":"","confirmpassword":"","alert":false,"errordetail":"","isFormValid":false,
   "showPassword":false,"remember":false,"loading":false,"status":false,"url_alert":"","btverify":false,"otp":"","timer": 0,"timeOutCallback": null,
   "disabledbt":false,showNewPassword:false,showConPassword:false,passwordStrength:"",passwordsMatch:"",minLength: false,hasNumber: false,hasUpper: false,hasLower: false,
-
+  "confirmlink":[]
 });
 
   return (

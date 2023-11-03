@@ -1,5 +1,5 @@
 import { Box, Button, TextField } from '@mui/material'
-import React from 'react'
+import React, { useEffect } from 'react'
 import OtpInput from 'react-otp-input';
 import { themedata } from '@/data/themedata';
 import { frontdata } from '@/data/frontdata'; 
@@ -13,9 +13,11 @@ import { OTPText } from '@/data/metadata';
 
 function Index() {
   const [state, setstate] = React.useContext(MyContext);
+
   const handleclick = HandleConfirm();
   const handleResend = HandleResend();
 
+  
   return (
    <>
         <UseEFOTP/>

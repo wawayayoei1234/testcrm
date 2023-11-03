@@ -17,7 +17,7 @@ function Index() {
   const handleResend = HandleResend();
   return (
     <>
-    <UseEFOTP/>
+    {/* <UseEFOTP/> */}
       <Box sx={{background:`linear-gradient(${themedata[0].primary}, ${themedata[0].three})`,height:"100vh",width:'100%'}}>
         <Box p={5} sx={{display:'flex',flexDirection:'column', background: 'white',width:'70%',
         borderRadius: 10,justifyContent:'center',alignItems:'center',position:'absolute',top:'50%',left:'50%',

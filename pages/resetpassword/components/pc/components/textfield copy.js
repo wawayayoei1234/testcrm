@@ -1,6 +1,6 @@
 import { Box, TextField,InputAdornment, Alert } from '@mui/material'
 import Tooltip, { tooltipClasses } from '@mui/material/Tooltip';
-import React, { useEffect } from 'react'
+import React from 'react'
 import { MyContext } from '@/context';
 import { ResetPassText } from '@/data/metadata';
 import Image from 'next/image';
@@ -8,8 +8,6 @@ import Hide from '@/assets/images/Hide.png'
 import Show from '@/assets/images/Show.png'
 import styled from 'styled-components';
 import handlevalidatepassword from '@/hook/validatepassword'
-import { useRouter } from 'next/router';
-import Login from '@/services/confirmlink'
 
 const LightTooltip = styled(({ className, ...props }) => (
   <Tooltip {...props} classes={{ popper: className }} />
@@ -22,18 +20,12 @@ const LightTooltip = styled(({ className, ...props }) => (
 function textfield() { 
   const [state, setstate] = React.useContext(MyContext);
   const updatePassword = handlevalidatepassword();
-  const router = useRouter();
-  const token = router.query.token;
-  
   return (
     <>
       {/* //*Textfield */}
-      {typeof token === 'undefined' ? (
-      <TextField type={state.showPassword ? 'text' : 'password'} onChange={(e) => {setstate((prevData) => ({...prevData,oldpassword: e.target.value,}));}}
-      label={ResetPassText[0].InputOldPass} placeholder={ResetPassText[0].InputOldPass} size='small' style={{ width: '300px', height: '60px'}} focused
-      color='primary' InputProps={{endAdornment: (<InputAdornment position="end"><Image style={{ cursor: "pointer" }} onClick={() => {setstate((prevData) => ({...prevData,showPassword: !state.showPassword,}));}}
-      alt="Iconview" src={state.showPassword ? Show : Hide} width={20} height={'30px'} /></InputAdornment>),}}/>) : null}
-
+      <TextField type={state.showPassword ? 'text' : 'password'} onChange={(e)=>{setstate((prevData) => ({ ...prevData, oldpassword:  e.target.value}))}}  label={ResetPassText[0].InputOldPass} placeholder={ResetPassText[0].InputOldPass} size='small'  style={{ width: '300px', height: '60px'}} focused color='primary'InputProps={{ endAdornment: (<InputAdornment position="end">
+          <Image style={{cursor:"pointer"}} onClick={()=>{setstate((prevData) => ({ ...prevData, showPassword: !state.showPassword }));}} alt="Iconview" src={state.showPassword ? Show : Hide} width={20} height={'30px'}></Image>
+          </InputAdornment>)}}/>
           <LightTooltip  title={
           <Box display="flex" flexDirection="column" sx={{ '& > *:not(:last-child)': { mb: 0.2 } }}>
             <Alert severity={state.passwordStrength!==""? state.passwordStrength === 'Very Weak' ? "error" :state.passwordStrength === 'Weak' ? "warning" :state.passwordStrength === 'Medium' ? "info" :"success":"error"}>

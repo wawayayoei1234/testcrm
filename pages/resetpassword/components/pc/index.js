@@ -1,11 +1,38 @@
-import { Box } from '@mui/material'
-import React from 'react'
+import React, { useState, useEffect, useContext } from 'react';
+import { Box, LinearProgress, Stack } from '@mui/material'
 import { themedata } from '@/data/themedata'; 
 import Title from './components/title'
 import Input from './components/textfield'
 import BtSubmit from './components/SubmitButton'
+import { useRouter } from 'next/router';
+import { MyContext } from '@/context';
 
-function Index() { 
+function Index() {
+  const [state, setstate] = useContext(MyContext);
+  const [isLoading, setIsLoading] = useState(true);
+  const router = useRouter();
+  const token = router.query.token;
+  useEffect(() => {
+    if(token){
+      setstate((prevData) => ({ ...prevData, confirmlink: token}));
+    }
+  }, [token]);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 200);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) {
+    return (
+      <>
+      <Box sx={{background:`linear-gradient(${themedata[0].primary}, ${themedata[0].three})`,height:"100vh",width:'100%'}}></Box>
+    </>
+    ); 
+  }
+
   return (
     <>
       <Box sx={{background:`linear-gradient(${themedata[0].primary}, ${themedata[0].three})`,height:"100vh",width:'100%'}}>
@@ -18,4 +45,5 @@ function Index() {
     </>
   )
 }
+
 export default Index;

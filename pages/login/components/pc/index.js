@@ -16,6 +16,8 @@ function index() {
   const [state, setstate] = React.useContext(MyContext);
   const handleClick = useHandleClick();
   const router = useRouter();
+
+
   return (
     <>
     <Box sx={{display:{xs:'none',md:'flex'},height:"100vh",width:'100%'}}>  
