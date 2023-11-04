@@ -32,7 +32,7 @@ function textfield() {
       <TextField type={state.showPassword ? 'text' : 'password'} onChange={(e) => {setstate((prevData) => ({...prevData,oldpassword: e.target.value,}));}}
       label={ResetPassText[0].InputOldPass} placeholder={ResetPassText[0].InputOldPass} size='small' style={{ width: '300px', height: '60px'}} focused
       color='primary' InputProps={{endAdornment: (<InputAdornment position="end"><Image style={{ cursor: "pointer" }} onClick={() => {setstate((prevData) => ({...prevData,showPassword: !state.showPassword,}));}}
-      alt="Iconview" src={state.showPassword ? Show : Hide} width={20} height={'30px'} /></InputAdornment>),}}/>) : null}
+      alt="Iconview" src={state.showPassword ? Show : Hide} width={20} height={'30px'} /></InputAdornment>),}}/>) : <Login/>}
 
           <LightTooltip  title={
           <Box display="flex" flexDirection="column" sx={{ '& > *:not(:last-child)': { mb: 0.2 } }}>

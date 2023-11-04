@@ -12,7 +12,7 @@ function confirmlink() {
         
         var raw = JSON.stringify({
           "email": decodedToken.email,
-          "password": "Vtzd7yTH",
+          "password": "pAXe02j7",
           "remember": false
         });
         
