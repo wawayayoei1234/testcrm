@@ -12,7 +12,7 @@ export default function Login(props) {
         myHeaders.append("Content-Type", "application/json");
         
         var raw = JSON.stringify({
-          "email": state.decode_token.email
+          "email": state.decode_token.email?state.decode_token.email:state.confirmlink_decode.email
         });
         
         var requestOptions = {

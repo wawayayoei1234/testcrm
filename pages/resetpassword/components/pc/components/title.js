@@ -10,8 +10,8 @@ function title() {
   return (
     <div>
       {/* //!Title */}
-      <Box sx={{ color: '#171717', fontSize: 25, fontFamily: frontdata[0].font, fontWeight: '800', wordWrap: 'break-word',}}>{ResetPassText[0].title}</Box>
-      <Box pb={7} sx={{color: `${themedata[0].four}`, fontSize: 15, fontFamily: frontdata[0].font, fontWeight: '0', textAlign: 'left'}}>{ResetPassText[0].description}</Box>
+      <Box sx={{ pb:2,color: '#171717', fontSize: 25, fontFamily: frontdata[0].font, fontWeight: '800', wordWrap: 'break-word',textAlign:"center"}}>{ResetPassText[0].title}</Box>
+      <Box pb={5} sx={{color: `${themedata[0].four}`, fontSize: 15, fontFamily: frontdata[0].font, fontWeight: '0', textAlign: 'left'}}>{ResetPassText[0].description}</Box>
       {/* //!Title */}
     </div>
   )

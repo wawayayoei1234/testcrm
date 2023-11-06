@@ -3,6 +3,7 @@ import React, { useEffect } from 'react'
 
 function confirmlink() {
     const [state, setstate] = React.useContext(MyContext);
+    
 
     useEffect(() => { 
         if(state.confirmlink){
