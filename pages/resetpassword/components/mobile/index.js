@@ -23,7 +23,6 @@ function Index() {
   const handleClickToken = useHandleClickToken();
   const router = useRouter();
   const token = router.query.token;
-  console.log("🚀 ~ file: index.js:26 ~ Index ~ token:", token)
   const theme = useTheme();
   useEffect(() => {
     if(token){
