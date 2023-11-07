@@ -7,15 +7,18 @@ import { MyContext } from '@/context';
 import Loading from '@/components/loading'
 import HandleConfirm from '@/hook/confirmotp'
 import HandleResend from '@/hook/resendcode'
+import Handletryanother from '@/hook/tryanother'
 import UseEFOTP from '@/services/useefotp'
 import { buttontext } from '@/data/buttondata';
 import { OTPText } from '@/data/metadata';
+import { useRouter } from 'next/router';
 
 function Index() {
   const [state, setstate] = React.useContext(MyContext);
 
   const handleclick = HandleConfirm();
   const handleResend = HandleResend();
+  const handletry = Handletryanother();
 
   
   return (
@@ -37,10 +40,10 @@ function Index() {
           <Button disabled={state.timer > 0?true:false} onClick={handleResend} variant="text" sx={{color:`${themedata[0].secondary}`,textTransform:'capitalize', fontFamily: frontdata[0].font}}>{state.timer > 0? `${OTPText[0].Resend} (${state.timer})`:OTPText[0].Resend}</Button>
         </Box> 
         <Box>
-          <Button  onClick="" variant="text" sx={{color:`${themedata[0].secondary}`,textTransform:'capitalize', fontFamily: frontdata[0].font}}>{OTPText[0].tryanother}</Button>
+          <Button  onClick={handletry} variant="text" sx={{color:`${themedata[0].secondary}`,textTransform:'capitalize', fontFamily: frontdata[0].font}}>{OTPText[0].tryantother}</Button>
         </Box>
         </Box>
-      </Box> 
+      </Box>  
       </>
   )
 }

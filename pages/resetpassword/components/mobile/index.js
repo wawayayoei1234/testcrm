@@ -18,12 +18,12 @@ import { useRouter } from 'next/router';
 function Index() {
   const [state, setstate] = React.useContext(MyContext);
   const [isLoading, setIsLoading] = useState(true);
-  const updatePassword = handlevalidatepassword();
+  const updatePassword = handlevalidatepassword(); 
   const handleClick = useHandleClick();
   const handleClickToken = useHandleClickToken();
   const router = useRouter();
   const token = router.query.token;
-  const theme = useTheme();
+  const theme = useTheme(); 
   useEffect(() => {
     if(token){
       const decodedToken = JSON.parse(atob(token.split('.')[1]));

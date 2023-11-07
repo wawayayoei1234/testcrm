@@ -29,10 +29,16 @@ export const OTPText = [
         "tryantother":"Try another"
     }
 ]
+export const TOTPText = [
+    {
+        "title":"Verify login",
+        "description":"Enter the code gererated by your authenticator app.",
+    }
+]
 export const totp = [
     {
         "title":"Enable two-factor authentication",
-        "description":"Scan the QR code below with an authentication <br/> application, such as Google Authenticator, on your phone.",
+        "description":"Scan the QR code below with an authentication <br/> application, such as Google or Microsoft, on your phone.",
         "description2":"(Get more information on using two-factor authentication.)",
         "cantscan":"Can't scan the QR code?",
         "typethecode":"Type the code created by the authentication app.",

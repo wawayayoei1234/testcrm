@@ -8,6 +8,7 @@ export default function useHandleClick(props) {
     const handleClick =() =>{
       if(state.confirmlink){
         const decodedToken = JSON.parse(atob(state.confirmlink.split('.')[1]));
+        setstate((prevData) => ({ ...prevData, decode_token: decodedToken}));
           var myHeaders = new Headers();
           myHeaders.append("Content-Type", "application/json");
           myHeaders.append("Authorization", `Bearer ${state.confirmlink}`);

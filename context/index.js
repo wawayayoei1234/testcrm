@@ -8,6 +8,7 @@ import Alert from '@/components/alert'
 import {Checkvalueinfield}  from '@/utils/checkvalueinfield';
 import Timeoutcallback from '@/services/timeoutcallback';
 import SetTimeout from '@/services/settimeout';
+import UseefTOTP from '@/services/useeftotp'
 export const MyContext = createContext();
 export const MyProvider = (props) => {
   const { children } = props;
@@ -16,7 +17,7 @@ export const MyProvider = (props) => {
   "decode_token":[],"bearer_token":[],"oldpassword":"","newpassword":"","confirmpassword":"","alert":false,"errordetail":"","isFormValid":false,
   "showPassword":false,"remember":false,"loading":false,"status":false,"url_alert":"","btverify":false,"otp":"","timer": 0,"timeOutCallback": null,
   "disabledbt":false,showNewPassword:false,showConPassword:false,passwordStrength:"",passwordsMatch:"",minLength: false,hasNumber: false,hasUpper: false,hasLower: false,
-  "confirmlink":[],"confirmlink_decode":[]
+  "confirmlink":[],"confirmlink_decode":[],"totp":"","bttryanother":false,"qrcode_url":[]
 });
 
   return (
@@ -32,6 +33,7 @@ export const MyProvider = (props) => {
       <Checkvalueinfield/>
       <Timeoutcallback/>
       <SetTimeout/>
+      <UseefTOTP/>
         {children}
       </MyContext.Provider>
     </>
