@@ -5,12 +5,17 @@ function provinces() {
 
     const [state, setstate] = React.useContext(MyContext);
 
-    useEffect(() => {
-        fetch("http://192.168.5.39:8005/provinces")
-            .then(response => response.json())
-            .then(result =>  setstate((prevData) => ({ ...prevData, provinces:  result})))
-            .catch(error => console.log('error', error));
-    }, []);
+      useEffect(() => {
+    if (!state.data.length) {
+      fetch("http://192.168.5.43:8009/Thailand-Tambon")
+        .then(response => response.json())
+        .then(data => {
+          const provincesData = Array.from(new Set(data.map(item => item.ProvinceThai))).sort();
+          setstate(prev => ({ ...prev, data, provinces: provincesData }));
+        })
+        .catch(error => console.error('Error fetching data: ', error));
+    }
+  }, [state, setstate]);
   return null;
 }
 

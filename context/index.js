@@ -7,7 +7,10 @@ export const MyContext = createContext();
 export const MyProvider = (props) => {
   const { children } = props;
   const [state, setState] = React.useState({"menuMobile": false,"token":[],"role":[],"country":[],"provinces":[],
-  "amphures":[],"Tambons":[],"zipcode":[],"open":false,"anchorEl":null});
+  "amphures":[],"tambons":[],"zipcode":[],"open":false,"anchorEl":null,"data":[],"selectedProvince":(""),
+  "selectedAmphoe":(""),"selectedTambon":(""),"firstName":(""),"LastName":(""),"jobTitle":(""),"company_email":(""),
+  "MobileNumber":(""),"CompanyName":(""),"Branch":(""),"Address":(""),"Address2":(""),"Website":(""),"Country":(""),
+  "Confirmed":false,"Email":(""),"OpenAlert":false,"selectedCountry":("")});
 
   React.useEffect(() => {
   }, []);

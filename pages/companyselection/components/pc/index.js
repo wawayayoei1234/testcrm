@@ -1,13 +1,11 @@
 import { Box, Button, TextField, Typography } from '@mui/material'
-import Image from 'next/image';
 import Link from 'next/link';
 import React, { useState } from 'react'
-import { themedata } from '../../../../data/themedata';
-import { frontdata } from '../../../../data/frontdata'; 
+import { themedata } from 'data/themedata';
+import { frontdata } from 'data/frontdata'; 
 function Index() {
   const [clicked, setClicked] = useState(false);
   const [clicked2, setClicked2] = useState(false);
-
   const handleClick = () => {
     setClicked(prevState => !prevState);
   };
