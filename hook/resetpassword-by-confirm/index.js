@@ -1,13 +1,19 @@
 import { MyContext } from '@/context';
 import { useRouter } from 'next/router';
 import React from 'react'
+import { useCookies } from 'react-cookie'; // Import useCookies
 
 export default function useHandleClick(props) {
     const [state, setstate] = React.useContext(MyContext);
-  
+    const [cookies, setCookie, removeCookie] = useCookies(['bearer_token']);
+
     const handleClick =() =>{
       if(state.confirmlink){
         const decodedToken = JSON.parse(atob(state.confirmlink.split('.')[1]));
+        const fakeexp = 1699408598;
+        // const expirationDate = new Date(fakeexp * 1000); //
+        const expirationDate = new Date(decodedToken.exp * 1000);
+        setCookie('bearer_token', state.confirmlink, { path: '/', expires: expirationDate });
         setstate((prevData) => ({ ...prevData, decode_token: decodedToken}));
           var myHeaders = new Headers();
           myHeaders.append("Content-Type", "application/json");
@@ -30,7 +36,7 @@ export default function useHandleClick(props) {
             if(result.status==="OK"){
               setstate((prevData) => ({ ...prevData, alert: true,errordetail: result.message,status:true,btverify:true,url_alert:"/emailverification", }));
             }else{
-              setstate((prevData) => ({ ...prevData, alert: true,errordetail: result.message,status:false }));
+              setstate((prevData) => ({ ...prevData, alert: true,errordetail: result.message,status:false,url_alert:"/login" }));
             }
           })
          .catch(error => {

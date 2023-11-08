@@ -28,7 +28,7 @@ function Index() {
           <Box sx={{ color: `${themedata[0].ten}`, fontSize: 20, fontFamily: frontdata[0].font, fontWeight: '800',textAlign:"center",[theme.breakpoints.down('390')]: {fontSize: 15,},[theme.breakpoints.down('281')]: {fontSize: 13,}}}>{totp[0].title}</Box>
           <Box pt={2} sx={{color: `${themedata[0].four}`, fontSize: 15, fontFamily: frontdata[0].font, fontWeight: '0', textAlign: 'center',[theme.breakpoints.down('390')]: {fontSize: 13,},[theme.breakpoints.down('281')]: {fontSize: 11,}}} dangerouslySetInnerHTML={{ __html: totp[0].description }}/>
           <Box pb={3} pt={1} sx={{color: "#2AB930", fontSize: 13, fontFamily: frontdata[0].font, fontWeight: '0', textAlign: 'center',[theme.breakpoints.down('390')]: {fontSize: 11,},[theme.breakpoints.down('390')]: {fontSize: 9,}}} dangerouslySetInnerHTML={{ __html: totp[0].description2 }}/>
-          <Box sx={{display: 'flex',justifyContent: 'center',width: isSmallScreen?"auto":"200px",height: 'auto',
+          <Box sx={{display: 'flex',justifyContent: 'center',width: isSmallScreen?"auto":"200px",height: 'auto',borderRadius:"2%",
             background:
               'linear-gradient(to right, #84BAA1 4px, transparent 4px) 0 0, ' +
               'linear-gradient(to right, #84BAA1 4px, transparent 4px) 0 100%, ' +
