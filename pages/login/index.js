@@ -7,10 +7,10 @@ import { themedata } from '@/data/themedata';
 
 function Index() {
   return (
-    <Box sx={{ background: `linear-gradient(108deg, #84BAA1 0%, #FFFBE2 100%), linear-gradient(110deg, #90BA61 -2.13%, #44612A 102.03%), #FFF` }}>
+    <Box sx={{ background: `linear-gradient(108deg, ${themedata[0].primary} 0%, ${themedata[0].bgshadowwhite} 100%), linear-gradient(110deg, ${themedata[0].greenlight} -2.13%, ${themedata[0].greenblack} 102.03%), ${themedata[0].three}` }}>
       <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
         <Layout
-          containerheight="auto"
+          containerheight="auto" 
           templaterow="0fr auto 0fr"
           templateareas="'nav' 'content1' 'footer'"
           mtemplaterow="0fr auto 0fr"

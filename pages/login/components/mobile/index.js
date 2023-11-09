@@ -1,15 +1,14 @@
 import { Box, Button, Checkbox, FormControlLabel, TextField ,InputAdornment} from '@mui/material'
-import { themedata } from '../../../../data/themedata';
-import React, { useEffect, useState } from 'react';
+import { themedata } from '@/data/themedata';
+import React from 'react';
 import Hide from '@/assets/images/Hide.png'
 import Show from '@/assets/images/Show.png'
 import Image from 'next/image';
-import { frontdata } from '../../../../data/frontdata'; 
+import { frontdata } from '@/data/frontdata'; 
 import { MyContext } from '@/context';
 import { useRouter } from 'next/router';
 import Loading from '@/components/loading'
 import useHandleClick from '@/hook/login';
-import { buttontext } from '@/data/buttondata';
 import { LoginText } from '@/data/metadata';
 
 function index() {

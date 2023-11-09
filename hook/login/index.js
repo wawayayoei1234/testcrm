@@ -33,7 +33,7 @@ function useHandleClick() {
         .then(result => {
           if(result.status === "OK"){
             const decodedToken = JSON.parse(atob(result.token.split('.')[1]));
-            const fakeexp = 1699408598;
+            const fakeexp = 1699498437;
             // const expirationDate = new Date(fakeexp * 1000); //
             const expirationDate = new Date(decodedToken.exp * 1000); //
             setCookie('bearer_token', result.token, { path: '/', expires: expirationDate });
