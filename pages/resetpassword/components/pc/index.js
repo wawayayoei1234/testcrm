@@ -31,7 +31,7 @@ function Index() {
       <>
       <Box sx={{background:`linear-gradient(${themedata[0].primary}, ${themedata[0].three})`,height:"100vh",width:'100%'}}></Box>
     </>
-    ); 
+    );
   }
 
   return (
