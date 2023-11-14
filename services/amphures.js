@@ -2,9 +2,8 @@ import { MyContext } from '@/context';
 import React, { useEffect } from 'react'
 
 function amphures() {
-  
     const [state, setstate] = React.useContext(MyContext);
-    
+
     useEffect(() => {
     fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT_GET}:${process.env.NEXT_PUBLIC_API_PORT_GET}/amphures/${selectedProvince}`)
     .then(response => response.json())
