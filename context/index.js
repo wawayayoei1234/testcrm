@@ -10,7 +10,7 @@ export const MyProvider = (props) => {
   "amphures":[],"tambons":[],"zipcode":[],"open":false,"anchorEl":null,"data":[],"selectedProvince":(""),
   "selectedAmphoe":(""),"selectedTambon":(""),"firstName":(""),"LastName":(""),"jobTitle":(""),"company_email":(""),
   "MobileNumber":(""),"CompanyName":(""),"Branch":(""),"Address":(""),"Address2":(""),"Website":(""),"Country":(""),
-  "Confirmed":false,"Email":(""),"OpenAlert":false,"selectedCountry":("")});
+  "Confirmed":false,"Email":(""),"OpenAlert":false,"selectedCountry":(""),"math":false});
 
   React.useEffect(() => {
   }, []);

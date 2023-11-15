@@ -39,6 +39,9 @@ const theme = createTheme({
     twelve: {
       main: themedata[0].twelve,
     },
+    btcompany: {
+      main: themedata[0].btcompany,
+    },
     facebook: {
       main: themedata[0].facebook,
     },

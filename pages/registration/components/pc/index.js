@@ -14,6 +14,8 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 function index() {
   const [state, setState] = useContext(MyContext);
   const { data: session } = useSession();
+  const {match,setmatch} = useState('')
+
   const handleCheckboxChange = (event) => {
   setState((prevData) => ({ ...prevData, Confirmed: event.target.checked }));
 }
@@ -24,13 +26,12 @@ const handleClickOpen = () => {
     && state.Branch&& state.Website && state.MobileNumber && state.selectedCountry && state.selectedProvince && state.selectedAmphoe
     && state.selectedTambon && state.zipcode ) {
       setState((prevData) => ({ ...prevData, open: true }))
-  
+    
     console.log(state)
   } else {
     setOpenAlert(true);
   }
 }
-
 const handleCloseAlert = () => {
   setOpenAlert(false);
 }
@@ -38,7 +39,7 @@ const handleClose = () => {
   setState((prevData) => ({ ...prevData, open: false }));
 }
   useEffect(() => {
-    fetch("http://192.168.5.43:8009/countries")
+    fetch("http://192.168.5.65:8009/countries")
       .then(response => {
         if (!response.ok) {
           throw new Error('Failed to load countries');
@@ -89,11 +90,11 @@ const handleClose = () => {
     if (tambonData) {
       setState(prev => ({ ...prev, zipcode: tambonData.PostCodeMain }));
     }
-  };
+  }
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setState((prevState) => ({ ...prevState, [name]: value }));
-  };
+  }
   const handleSubmit = async () => {
     const payload = {
       email: session.user.email,
@@ -110,10 +111,11 @@ const handleClose = () => {
       province: state.selectedProvince,
       district: state.selectedAmphoe,
       sub_district: state.selectedTambon,
-      postal_zipcode: state.zipcode
+      postal_zipcode: state.zipcode,
+      
     };
     try {
-      const response = await fetch("http://192.168.5.43:8008/register-chiccrm", {
+      const response = await fetch("http://192.168.5.65:8008/register-chiccrm", {
         method: 'POST',
         headers: {"Content-Type": "application/json" },
         body: JSON.stringify(payload)
@@ -160,7 +162,7 @@ const handleClose = () => {
           <Box p={1} sx={{color: `${themedata[0].ten}`, fontSize: 22, fontFamily: frontdata[0].font, fontWeight: '400', wordWrap: 'break-word'}}>Company Details</Box>
           <Grid container  pl={5}  columnSpacing={{ xs: 1, sm: 2, md: 3 }} sx={{  width: '50%' }}>
             <Grid item xs={4} pb={2}>
-            <TextField  id="CompanyName" name="CompanyName"  label="Company Name"placeholder="Enter Company Name" size='small'value={state.CompanyName} onChange={handleInputChange}  style={{ width: '300px', height: '60px' }} focused color='primary'/>
+            <TextField disabled={state.CompanyName ?true :false } id="CompanyName" name="CompanyName"  label="Company Name"placeholder="Enter Company Name" size='small'value={state.CompanyName} onChange={handleInputChange}  style={{ width: '300px', height: '60px' }} focused color='primary'/>
             </Grid>
             <Grid item xs={4}>
             <FormControl fullWidth>
@@ -304,12 +306,7 @@ const handleClose = () => {
             </Box>
           </Box>
             </Dialog>
-            <Dialog
-              open={openAlert}
-              onClose={handleCloseAlert}
-              aria-labelledby="alert-dialog-title"
-              aria-describedby="alert-dialog-description"
-            >
+            <Dialog open={openAlert}onClose={handleCloseAlert}aria-labelledby="alert-dialog-title"aria-describedby="alert-dialog-description">
               <DialogTitle id="alert-dialog-title">{"ข้อมูลไม่ครบถ้วน"}</DialogTitle>
               <DialogContent>
                 <DialogContentText id="alert-dialog-description">

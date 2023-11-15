@@ -12,5 +12,7 @@ export const themedata = [
         "ten"  : "#171717",
         "eleven"  : "#9CD6B3",
         "twelve"  : "#D9D9D9",
+        "btcompany"  : "#DBECE3",
+        
     }
 ];

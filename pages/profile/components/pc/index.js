@@ -17,18 +17,20 @@ export default function () {
     <Box sx={{display:{xs:"none",md:'flex'},flexDirection:'column'}} >
         <Box sx={{display:'flex',justifyContent:'center'}}>
               <Box p={1} pt={5}>
-                  <Box p={3} sx={{width: 260, height: 250, background: `${themedata[0].eleven}`, borderRadius:5}} >
+                  <Box p={3} sx={{width: 260, height: 250, background: `${themedata[0].eleven}`, borderRadius:5,"&:hover": {
+                                  background: `linear-gradient(to bottom, #9CD6B3, #FFFFFF00)`}}} >
                   <Box sx={{ color: `${themedata[0].ten}`, fontSize: 14, fontFamily: frontdata[0].font, fontWeight: '40', }}>Clock-in / Clock-out</Box>
                   <Box sx={{ color: `${themedata[0].ten}`, fontSize: 24, fontFamily: frontdata[0].font, fontWeight: '40', }}>Attendance</Box>
                   <Box pl={2} sx={{cursor: "pointer",transition: "transform 0.1s","&:hover": {transform: "translateY(-5px) "}}}>
-                    <Image alt="Iconview" src={attenden} width={238} height={'auto'}></Image></Box></Box>
+                    <Image alt="Iconview" src={attenden} width={250} height={'auto'}></Image></Box></Box>
               </Box >
               <Box p={1} pt={5}>
-                  <Box p={3} sx={{width: 260, height: 250,background: `${themedata[0].nine}`, borderRadius: 5,}} >
+                  <Box p={3} sx={{width: 260, height: 250,background: `${themedata[0].nine}`, borderRadius: 5,"&:hover": {
+                                  background: `linear-gradient(to bottom, #97BDFE, #FFFFFF00)`}}} >
                   <Box sx={{ color: `${themedata[0].ten}`, fontSize: 14, fontFamily: frontdata[0].font, fontWeight: '40', }}>Description</Box>
                   <Box sx={{ color: `${themedata[0].ten}`, fontSize: 24, fontFamily: frontdata[0].font, fontWeight: '40', }}>Notes</Box>
-                  <Box pl={6} sx={{cursor: "pointer",transition: "transform 0.1s","&:hover": {transform: "translateY(-5px) "}}}>
-                    <Image alt="Iconview" src={note} width={230} height={'auto'}></Image>
+                  <Box pl={5} sx={{cursor: "pointer",transition: "transform 0.1s","&:hover": {transform: "translateY(-5px) "}}}>
+                    <Image alt="Iconview" src={note} width={240} height={'auto'}></Image>
                     </Box>
                   </Box>
               </Box>

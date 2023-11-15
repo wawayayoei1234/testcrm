@@ -7,7 +7,7 @@ function provinces() {
 
       useEffect(() => {
     if (!state.data.length) {
-      fetch("http://192.168.5.43:8009/Thailand-Tambon")
+      fetch("http://192.168.5.65:8009/Thailand-Tambon")
         .then(response => response.json())
         .then(data => {
           const provincesData = Array.from(new Set(data.map(item => item.ProvinceThai))).sort();
