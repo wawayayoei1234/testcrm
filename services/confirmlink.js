@@ -2,7 +2,7 @@ import { MyContext } from '@/context';
 import React, { useEffect } from 'react'
 
 function confirmlink() {
-    const [state, setstate] = React.useContext(MyContext);
+    const [state, setState] = React.useContext(MyContext);
     
 
     useEffect(() => { 

@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import React from 'react'
 
 function index() {
-    const [state, setstate] = React.useContext(MyContext);
+    const [state, setState] = React.useContext(MyContext);
     const router = useRouter();
 
     const handleclick = ()=>{
@@ -25,9 +25,10 @@ function index() {
           .then(response => response.json())
           .then(result => {
             if(result.status==="OK"){
+              setState((prevData) => ({ ...prevData, btverify: false }));
               router.push('/profile');
             }else{
-              setstate((prevData) => ({ ...prevData, alert: true,errordetail: result.message }));
+              setState((prevData) => ({ ...prevData, alert: true,errordetail: result.message }));
             }
           })
           .catch(error => console.log('error', error));

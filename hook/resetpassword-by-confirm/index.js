@@ -4,7 +4,7 @@ import React from 'react'
 import { useCookies } from 'react-cookie'; // Import useCookies
 
 export default function useHandleClick(props) {
-    const [state, setstate] = React.useContext(MyContext);
+    const [state, setState] = React.useContext(MyContext);
     const [cookies, setCookie, removeCookie] = useCookies(['bearer_token']);
 
     const handleClick =() =>{
@@ -14,13 +14,13 @@ export default function useHandleClick(props) {
         // const expirationDate = new Date(fakeexp * 1000); //
         const expirationDate = new Date(decodedToken.exp * 1000);
         setCookie('bearer_token', state.confirmlink, { path: '/', expires: expirationDate });
-        setstate((prevData) => ({ ...prevData, decode_token: decodedToken}));
+        setState((prevData) => ({ ...prevData, decode_token: decodedToken}));
           var myHeaders = new Headers();
           myHeaders.append("Content-Type", "application/json");
           myHeaders.append("Authorization", `Bearer ${state.confirmlink}`);
           if(decodedToken){
           var raw = JSON.stringify({
-            "email": decodedToken.email,
+            "username": decodedToken.username,
             "newpassword": state.newpassword
           });
           }
@@ -33,14 +33,15 @@ export default function useHandleClick(props) {
           fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT_LOGIN}:${process.env.NEXT_PUBLIC_API_PORT_LOGIN}/api/change-password-byconfirm-link`, requestOptions)
          .then(response => response.json())
          .then(result => {
+            console.log("🚀 ~ file: index.js:36 ~ handleClick ~ result:", result)
             if(result.status==="OK"){
-              setstate((prevData) => ({ ...prevData, alert: true,errordetail: result.message,status:true,btverify:true,url_alert:"/emailverification", }));
+              setState((prevData) => ({ ...prevData, alert: true,errordetail: result.message,status:true,url_alert:"/login", }));
             }else{
-              setstate((prevData) => ({ ...prevData, alert: true,errordetail: result.message,status:false,url_alert:"/login" }));
+              setState((prevData) => ({ ...prevData, alert: true,errordetail: result.message,status:false,url_alert:"/login" }));
             }
           })
          .catch(error => {
-          setstate((prevData) => ({...prevData,alert: true,errordetail: error,}))
+          setState((prevData) => ({...prevData,alert: true,errordetail: error,}))
          });
       }
     }

@@ -19,7 +19,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 
 export default function AlertDialogSlide() {
   const router = useRouter();
-    const [state, setstate] = React.useContext(MyContext);
+    const [state, setState] = React.useContext(MyContext);
 
   return (
       <Dialog PaperProps={{ sx: { borderRadius: "7px" } }} open={state.alert} TransitionComponent={Transition} keepMounted >
@@ -29,7 +29,7 @@ export default function AlertDialogSlide() {
         </DialogContent>
         <DialogActions sx={{pb:2,display:"flex",justifyContent:"center",alignItems:"center"}}>
           <Button onClick={()=>{
-            setstate((prevData) => ({ ...prevData, alert:  false,loading:false,btlogin:false,btchangepass:false}))
+            setState((prevData) => ({ ...prevData, alert:  false,loading:false,btlogin:false,btchangepass:false}))
             router.push(state.url_alert);
           }} style={{ fontSize: '16px', padding: '6px 12px',
           backgroundColor:`${themedata[0].primary}`,width: '100px', height: 'auto',textTransform:'capitalize', fontFamily: frontdata[0].font,color:`${themedata[0].three}` }}>OK</Button>

@@ -2,10 +2,10 @@ import { MyContext } from '@/context';
 import React, { useContext } from 'react'
 
 function index() {
-    const [state, setstate] = useContext(MyContext);
+    const [state, setState] = useContext(MyContext);
 
     const handleclick =()=>{
-      setstate((prevData) => ({ ...prevData, disabledbt: true,timer: 15}));
+      setState((prevData) => ({ ...prevData, disabledbt: true,timer: 15}));
       var myHeaders = new Headers();
       myHeaders.append("Content-Type", "application/json");
       var raw = JSON.stringify({"email": state.decode_token.email});
@@ -20,11 +20,11 @@ function index() {
         .then(result => {
             if(result.status==="OK"){
             }else{
-              setstate((prevData) => ({ ...prevData, alert: true,errordetail: result.message }));
+              setState((prevData) => ({ ...prevData, alert: true,errordetail: result.message }));
             }
         })
         .catch(error => {
-            setstate((prevData) => ({ ...prevData, alert: true,errordetail: error }));
+            setState((prevData) => ({ ...prevData, alert: true,errordetail: error }));
         });
 
     }

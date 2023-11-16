@@ -2,7 +2,7 @@ import { MyContext } from '@/context';
 import React, { useEffect } from 'react'
 
 function settimeout() {
-    const [state, setstate] = React.useContext(MyContext);
+    const [state, setState] = React.useContext(MyContext);
     useEffect(() => {
         state.timer > 0 && setTimeout(state.timeOutCallback, 1000);
       }, [state]);

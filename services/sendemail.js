@@ -3,16 +3,16 @@ import { env } from '@/next.config';
 import React, { useEffect } from 'react'
 
 export default function Login(props) {
-    const [state, setstate] = React.useContext(MyContext);
+    const [state, setState] = React.useContext(MyContext);
 
     useEffect(() => {
       if(state.btverify){
-        setstate((prevData) => ({ ...prevData, loading: true}));
+        setState((prevData) => ({ ...prevData, loading: true}));
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
         
         var raw = JSON.stringify({
-          "email": state.decode_token.email?state.decode_token.email:state.confirmlink_decode.email
+          "email": state.decode_token.UsernameOriginal?state.decode_token.UsernameOriginal:state.confirmlink_decode.username
         });
         
         var requestOptions = {
@@ -26,13 +26,13 @@ export default function Login(props) {
           .then(response => response.json())
           .then(result => {
             if(result.status==="OK"){
-              setstate((prevData) => ({ ...prevData, loading: false}));
+              setState((prevData) => ({ ...prevData, loading: false}));
             }else{
-              setstate((prevData) => ({ ...prevData, alert: true,errordetail: result.message }));
+              setState((prevData) => ({ ...prevData, alert: true,errordetail: result.message }));
             }
           })
           .catch(error => {
-            setstate((prevData) => ({ ...prevData, alert: true,errordetail: error }));
+            setState((prevData) => ({ ...prevData, alert: true,errordetail: error }));
           });
       }
     }, [state.btverify]); 

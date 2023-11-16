@@ -2,13 +2,13 @@ import { MyContext } from '@/context';
 import React, { useEffect } from 'react'
 
 function tambons() {
-    const [state, setstate] = React.useContext(MyContext);
+    const [state, setState] = React.useContext(MyContext);
     useEffect(() => {
         fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT_GET}:${process.env.NEXT_PUBLIC_API_PORT_GET}/tambons/${selectedAmphure}`,)
         .then(response => response.json())
-        .then(result => setstate((prevData) => ({ ...prevData, tambons:  result})))
+        .then(result => setState((prevData) => ({ ...prevData, tambons:  result})))
         .catch(error => {
-          setstate((prevData) => ({ ...prevData, alert:true,errordetail:  "Unable to connect to the server! Please check the server."}))
+          setState((prevData) => ({ ...prevData, alert:true,errordetail:  "Unable to connect to the server! Please check the server."}))
         });
     },[]);
   

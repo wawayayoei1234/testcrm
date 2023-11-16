@@ -13,7 +13,7 @@ function index() {
         
         var raw = JSON.stringify({
           "value": 1,
-          "accountName": state.decode_token.email
+          "accountName": state.decode_token.UsernameOriginal
         });
         
         

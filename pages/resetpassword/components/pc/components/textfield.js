@@ -6,7 +6,6 @@ import { ResetPassText } from '@/data/metadata';
 import Image from 'next/image';
 import Hide from '@/assets/images/Hide.png'
 import Show from '@/assets/images/Show.png'
-import styled from 'styled-components';
 import handlevalidatepassword from '@/hook/validatepassword'
 import { useRouter } from 'next/router';
 import Login from '@/services/confirmlink'
@@ -33,9 +32,9 @@ function textfield() {
       <Image style={{cursor:"pointer"}} onClick={()=>{setstate((prevData) => ({ ...prevData, showNewPassword: !state.showNewPassword }));}} alt="Iconview" src={state.showNewPassword ? Show : Hide} width={20} height={'30px'}></Image>
       </InputAdornment>)}}/>
       <Box id="passwordvalidate" display="flex" flexDirection="column" alignSelf="flex-start">
-       <Box sx={{color:state.passwordStrength!==""? state.passwordStrength === 'Very Weak' ? "red" :state.passwordStrength === 'Weak' ? "orange" :state.passwordStrength === 'Medium' ? "orange" :"green":"red",display:"flex",alignItems:"center",mt:-1,fontSize: 12, fontFamily: frontdata[0].font, fontWeight: '400',}}>
-         {state.passwordStrength!==""? state.passwordStrength === 'Very Weak' ? (<ClearIcon style={{fontSize:"17px"}} color='error'/>) :state.passwordStrength === 'Weak' ? (<WarningAmberIcon style={{fontSize:"17px"}} color='warning'/>) :state.passwordStrength === 'Medium' ? (<WarningAmberIcon style={{fontSize:"17px"}} color='warning'/>) :(<CheckIcon style={{fontSize:"17px"}} color='success'/>):(<ClearIcon style={{fontSize:"17px"}} color='error'/>)}
-         {state.passwordStrength!==""?`Password Strength: ${state.passwordStrength}`:"Password Strength: -"}
+       <Box sx={{color:state.passwordStrength!==""&&state.passwordStrength!==undefined? state.passwordStrength === 'Very Weak' ? "red" :state.passwordStrength === 'Weak' ? "orange" :state.passwordStrength === 'Medium' ? "orange" :"green":"red",display:"flex",alignItems:"center",mt:-1,fontSize: 12, fontFamily: frontdata[0].font, fontWeight: '400',}}>
+         {state.passwordStrength!==""&&state.passwordStrength!==undefined? state.passwordStrength === 'Very Weak' ? (<ClearIcon style={{fontSize:"17px"}} color='error'/>) :state.passwordStrength === 'Weak' ? (<WarningAmberIcon style={{fontSize:"17px"}} color='warning'/>) :state.passwordStrength === 'Medium' ? (<WarningAmberIcon style={{fontSize:"17px"}} color='warning'/>) :(<CheckIcon style={{fontSize:"17px"}} color='success'/>):(<ClearIcon style={{fontSize:"17px"}} color='error'/>)}
+         {state.passwordStrength!==""&&state.passwordStrength!==undefined?`Password Strength: ${state.passwordStrength}`:"Password Strength: -"}
        </Box>
       <Box sx={{color:state.minLength ? "green" : "red",mt:0.5,display:"flex",alignItems:"center",fontSize: 12, fontFamily: frontdata[0].font, fontWeight: '400',}}>
          {state.minLength ? (<CheckIcon style={{fontSize:"17px"}} color='success'/>) : (<ClearIcon style={{fontSize:"17px"}} color='error'/>)} Password must be at least 8 characters.

@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import React from 'react'
 
 export default function useHandleClick(props) {
-    const [state, setstate] = React.useContext(MyContext);
+    const [state, setState] = React.useContext(MyContext);
   
     const handleClick =() =>{
       if(state.decode_token.length === undefined){
@@ -26,13 +26,13 @@ export default function useHandleClick(props) {
          .then(response => response.json())
          .then(result => {
             if(result.status==="OK"){
-              setstate((prevData) => ({ ...prevData, alert: true,errordetail: result.message,status:true,btverify:true,url_alert:"/emailverification", }));
+              setState((prevData) => ({ ...prevData, alert: true,errordetail: result.message,status:true,btverify:true,url_alert:"/emailverification", }));
             }else{
-              setstate((prevData) => ({ ...prevData, alert: true,errordetail: result.message,status:false }));
+              setState((prevData) => ({ ...prevData, alert: true,errordetail: result.message,status:false }));
             }
           })
          .catch(error => {
-          setstate((prevData) => ({...prevData,alert: true,errordetail: error,}))
+          setState((prevData) => ({...prevData,alert: true,errordetail: error,}))
          });
       }
     }
