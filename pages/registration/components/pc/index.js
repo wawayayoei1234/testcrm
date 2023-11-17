@@ -13,6 +13,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 });
 function index() {
   const [state, setState] = useContext(MyContext);
+  console.log("🚀 ~ file: index.js:16 ~ index ~ state:", state)
   const { data: session } = useSession();
   const {match,setmatch} = useState('')
 
@@ -20,14 +21,11 @@ function index() {
   setState((prevData) => ({ ...prevData, Confirmed: event.target.checked }));
 }
 const [openAlert, setOpenAlert] = useState(false);
-
 const handleClickOpen = () => {
    if (state.firstName && state.LastName && state.jobTitle && state.company_email && state.MobileNumber && state.CompanyName && state.Address && state.Address2
     && state.Branch&& state.Website && state.MobileNumber && state.selectedCountry && state.selectedProvince && state.selectedAmphoe
     && state.selectedTambon && state.zipcode ) {
       setState((prevData) => ({ ...prevData, open: true }))
-    
-    console.log(state)
   } else {
     setOpenAlert(true);
   }
@@ -39,7 +37,7 @@ const handleClose = () => {
   setState((prevData) => ({ ...prevData, open: false }));
 }
   useEffect(() => {
-    fetch("http://192.168.5.65:8009/countries")
+    fetch("http://192.168.5.142:8009/countries")
       .then(response => {
         if (!response.ok) {
           throw new Error('Failed to load countries');
@@ -115,7 +113,7 @@ const handleClose = () => {
       
     };
     try {
-      const response = await fetch("http://192.168.5.65:8008/register-chiccrm", {
+      const response = await fetch("http://192.168.5.142:8008/register-chiccrm", {
         method: 'POST',
         headers: {"Content-Type": "application/json" },
         body: JSON.stringify(payload)

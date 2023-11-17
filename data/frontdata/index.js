@@ -1,5 +1,5 @@
 export const frontdata = [
     {
-        "font": "Avenir"
+        "font": "var(--cooper-font)"
     }
 ];

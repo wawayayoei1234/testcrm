@@ -2,12 +2,10 @@ import { MyContext } from '@/context';
 import React, { useEffect } from 'react'
 
 function provinces() {
-
     const [state, setstate] = React.useContext(MyContext);
-
       useEffect(() => {
     if (!state.data.length) {
-      fetch("http://192.168.5.65:8009/Thailand-Tambon")
+      fetch("http://192.168.5.142:8009/Thailand-Tambon")
         .then(response => response.json())
         .then(data => {
           const provincesData = Array.from(new Set(data.map(item => item.ProvinceThai))).sort();
@@ -18,5 +16,4 @@ function provinces() {
   }, [state, setstate]);
   return null;
 }
-
 export default provinces
