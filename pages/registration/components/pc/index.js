@@ -13,9 +13,9 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 });
 function index() {
   const [state, setState] = useContext(MyContext);
-  console.log("🚀 ~ file: index.js:16 ~ index ~ state:", state)
   const { data: session } = useSession();
   const {match,setmatch} = useState('')
+  console.log('state.validate.match:', state.validate.match);
 
   const handleCheckboxChange = (event) => {
   setState((prevData) => ({ ...prevData, Confirmed: event.target.checked }));
@@ -36,21 +36,7 @@ const handleCloseAlert = () => {
 const handleClose = () => {
   setState((prevData) => ({ ...prevData, open: false }));
 }
-  useEffect(() => {
-    fetch("http://192.168.5.38:8009/countries")
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Failed to load countries');
-        }
-        return response.json();
-      })
-      .then(result => {
-        setState(prevState => ({ ...prevState, countries: result }));
-      })
-      .catch(error => {
-        console.error('Error fetching countries:', error);
-      });
-  }, []);
+  
   const handleCountryChange = (event) => {
     setState(prevState => ({ ...prevState, selectedCountry: event.target.value }));
   };
@@ -113,7 +99,7 @@ const handleClose = () => {
       
     };
     try {
-      const response = await fetch("http://192.168.5.38:8008/register-chiccrm", {
+      const response = await fetch("http://192.168.5.48:8008/register-chiccrm", {
         method: 'POST',
         headers: {"Content-Type": "application/json" },
         body: JSON.stringify(payload)

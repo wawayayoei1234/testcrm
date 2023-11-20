@@ -31,11 +31,9 @@ const handleClick2 = () => {
 const router = useRouter();
 const clickTo = () => {
   if (state.Nocompany === true) {
-    const updatedValidate = [{ match: false }];
-    setState((predata) => ({...predata,validate: updatedValidate,}));
-    setTimeout(() => {
+    setState((predata) => ({ ...predata, validate: [] }));
+    setState((predata) => ({ ...predata, validate: { ...predata.validate, match: false } }));
       router.push('/registration');
-    }, 0);
   } else {
     router.push('/registration');
   }
