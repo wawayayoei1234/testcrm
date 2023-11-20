@@ -21,7 +21,7 @@ export default function useHandleClick(props) {
             body: raw,
             redirect: 'follow'
           };
-          fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT_LOGIN}:${process.env.NEXT_PUBLIC_API_PORT_LOGIN}/api/change-password`, requestOptions)
+          fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT_LOGIN}/api/change-password`, requestOptions)
          .then(response => response.json())
          .then(result => {
             if(result.status==="OK"){

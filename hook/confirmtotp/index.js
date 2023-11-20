@@ -23,7 +23,7 @@ function index() {
           redirect: 'follow'
         };
         
-        fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT_TOTP}:${process.env.NEXT_PUBLIC_API_PORT_TOTP}/verify-otp`, requestOptions)
+        fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT_TOTP}/api2/verify-otp`, requestOptions)
           .then(response => response.json())
           .then(result => {
             if(result.status==="OK"){

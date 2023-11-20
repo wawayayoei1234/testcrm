@@ -21,7 +21,7 @@ function index() {
           redirect: 'follow'
         };
         
-        fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT_SENDMAIL}:${process.env.NEXT_PUBLIC_API_PORT_SENDMAIL}/validate-otp`, requestOptions)
+        fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT_SENDMAIL}/api2/validate-otp`, requestOptions)
           .then(response => response.json())
           .then(result => {
             if(result.status==="OK"){
