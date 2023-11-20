@@ -37,7 +37,7 @@ const handleClose = () => {
   setState((prevData) => ({ ...prevData, open: false }));
 }
   useEffect(() => {
-    fetch("http://192.168.5.142:8009/countries")
+    fetch("http://192.168.5.38:8009/countries")
       .then(response => {
         if (!response.ok) {
           throw new Error('Failed to load countries');
@@ -113,7 +113,7 @@ const handleClose = () => {
       
     };
     try {
-      const response = await fetch("http://192.168.5.142:8008/register-chiccrm", {
+      const response = await fetch("http://192.168.5.38:8008/register-chiccrm", {
         method: 'POST',
         headers: {"Content-Type": "application/json" },
         body: JSON.stringify(payload)
@@ -160,10 +160,11 @@ const handleClose = () => {
           <Box p={1} sx={{color: `${themedata[0].ten}`, fontSize: 22, fontFamily: frontdata[0].font, fontWeight: '400', wordWrap: 'break-word'}}>Company Details</Box>
           <Grid container  pl={5}  columnSpacing={{ xs: 1, sm: 2, md: 3 }} sx={{  width: '50%' }}>
             <Grid item xs={4} pb={2}>
-            <TextField disabled={state.CompanyName ?true :false } id="CompanyName" name="CompanyName"  label="Company Name"placeholder="Enter Company Name" size='small'value={state.CompanyName} onChange={handleInputChange}  style={{ width: '300px', height: '60px' }} focused color='primary'/>
+            <TextField disabled={state.validate.match === true ? true : false } id="CompanyName" name="CompanyName"  label="Company Name"placeholder="Enter Company Name" size='small'value={state.validate.corporate_name_en} onChange={handleInputChange}  style={{ width: '300px', height: '60px' }} focused color='primary'/>
             </Grid>
             <Grid item xs={4}>
-            <FormControl fullWidth>
+            {state.validate.match === false ? 
+            (<FormControl >
            <InputLabel id="country-select-label">Country</InputLabel>
             <Select labelId="country-select-label"id="country-select"value={state.selectedCountry}label="Country"onChange={handleCountryChange} 
             style={{ width: '300px', height: '40px' }} size='small'>
@@ -173,15 +174,18 @@ const handleClose = () => {
                 </MenuItem>
               ))} 
             </Select>
-            </FormControl>
+            </FormControl>):
+            (<TextField disabled id="Country" name="Country"  label="Country"placeholder="Country" size='small'value={state.validate.country_name}  style={{ width: '300px', height: '60px' }} focused color='primary'/>
+            )}
             </Grid>
             <Grid item xs={4}>
-            <TextField fullWidth  label="Postal Code" variant="outlined" placeholder="Postal Code"  size='small'   value={state.zipcode}  InputProps={{ readOnly: true, }} style={{ width: '300px', height: '60px' }} focused />
+            <TextField  disabled={state.validate.match === true ? true :true }  label="Postal Code" variant="outlined" placeholder="Postal Code"  size='small'   value={state.validate.local_address_zipcode}  InputProps={{ readOnly: true, }} style={{ width: '300px', height: '60px' }} focused />
             </Grid>     
             <Grid item xs={4}pb={2}>
-            <TextField  id="Branch" name="Branch"  label="Branch"placeholder="Branch" size='small' value={state.Branch} onChange={handleInputChange}  style={{ width: '300px', height: '60px' }} focused color='primary'/>
+            <TextField  disabled={state.validate.match === true ?true :true } id="Branch" name="Branch"  label="Branch"placeholder="Branch" size='small' value={state.Branch} onChange={handleInputChange}  style={{ width: '300px', height: '60px' }} focused color='primary'/>
             </Grid> 
             <Grid item xs={4}>
+            {state.validate.match === false ?  
             <FormControl >
             <InputLabel >State / Provice</InputLabel>
             <Select labelId="province-select" id="province-select" value={state.selectedProvince} label="Province" onChange={handleProvinceChange}
@@ -192,14 +196,18 @@ const handleClose = () => {
                 </MenuItem>))}
             </Select>
             </FormControl>
+              :
+              <TextField disabled={state.validate.match === true ? true : true } id="Province" name="Province"  label="Province"placeholder="Province" size='small'value={state.validate.local_address_province}  style={{ width: '300px', height: '60px' }} focused color='primary'/>
+              }
             </Grid> 
             <Grid item xs={4} pb={2}>
-            <TextField  id="Website" name="Website" label="Website"placeholder="www.thacthai.com" size='small' value={state.Website} onChange={handleInputChange} style={{ width: '300px', height: '60px' }} focused color='primary'/>
+            <TextField  disabled={state.validate.match === true  ?true :false } id="Website" name="Website" label="Website"placeholder="www.thacthai.com" size='small' value={state.validate.website}  onChange={handleInputChange} style={{ width: '300px', height: '60px' }} focused color='primary'/>
             </Grid>
             <Grid item xs={4} pb={2}>
-            <TextField  id="Address" name="Address" label="Address"placeholder="Street, Apt" size='small' value={state.Address} onChange={handleInputChange} style={{ width: '300px', height: '60px' }} focused color='primary'/>
+            <TextField disabled={state.validate.match === true ?true :false } id="Address" name="Address" label="Address"placeholder="Street, Apt" size='small' value={state.validate.address1} onChange={handleInputChange} style={{ width: '300px', height: '60px' }} focused color='primary'/>
             </Grid>
             <Grid item xs={4}>
+            {state.validate.match === false ? 
         <FormControl >
           <InputLabel id="amphoe-select-label">Amphoe</InputLabel>
           <Select labelId="amphoe-select-label" id="amphoe-select" value={state.selectedAmphoe} label="Amphoe" onChange={handleAmphoeChange}
@@ -211,12 +219,15 @@ const handleClose = () => {
             ))}
           </Select>
         </FormControl>
+        :<TextField disabled={state.validate.match === true ? true : true } id="Amphoe" name="Amphoe"  label="Amphoe"placeholder="Amphoe" size='small'value={state.validate.district}  style={{ width: '300px', height: '60px' }} focused color='primary'/>
+        }
        </Grid>
             <Grid item xs={4}></Grid>      
             <Grid item xs={4}>
-            <TextField  id="Address2" name="Address2" label="Address 2"placeholder="Office, Room/Flat" size='small'value={state.Address2} onChange={handleInputChange}  style={{ width: '300px', height: '60px' }} focused color='primary'/>
+            <TextField disabled={state.validate.match === true ? true :false } id="Address2" name="Address2" label="Address 2"placeholder="Office, Room/Flat" size='small'value={state.validate.address2} onChange={handleInputChange}  style={{ width: '300px', height: '60px' }} focused color='primary'/>
             </Grid> 
             <Grid item xs={4}>
+            {state.validate.match === false ? 
             <FormControl fullWidth>
               <InputLabel id="tambon-select-label">Tambon</InputLabel>
               <Select labelId="tambon-select-label" id="tambon-select"value={state.selectedTambon} label="Tambon"
@@ -228,6 +239,8 @@ const handleClose = () => {
                 ))}
               </Select>
             </FormControl>
+            :<TextField disabled={state.validate.match === true ? true : true } id="Tambon" name="Tambon"  label="Tambon"placeholder="Tambon" size='small'value={state.validate.sub_district} style={{ width: '300px', height: '60px' }} focused color='primary'/>
+            }
           </Grid> 
           </Grid>
           </Box>

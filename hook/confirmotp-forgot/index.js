@@ -11,10 +11,8 @@ function index() {
         myHeaders.append("Content-Type", "application/json");
         
         var raw = JSON.stringify({
-          "OTP": state.totp,
-          "accountName": state.decode_token.UsernameOriginal
+          "otp": parseInt(state.otp)
         });
-        
         
         var requestOptions = {
           method: 'POST',
@@ -23,12 +21,12 @@ function index() {
           redirect: 'follow'
         };
         
-        fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT_TOTP}:${process.env.NEXT_PUBLIC_API_PORT_TOTP}/verify-otp`, requestOptions)
+        fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT_SENDMAIL}:${process.env.NEXT_PUBLIC_API_PORT_SENDMAIL}/validate-otp`, requestOptions)
           .then(response => response.json())
           .then(result => {
             if(result.status==="OK"){
               setState((prevData) => ({ ...prevData, btverify: false }));
-              router.push('/profile');
+              router.push('/resetpassword');
             }else{
               setState((prevData) => ({ ...prevData, alert: true,errordetail: result.message }));
             }

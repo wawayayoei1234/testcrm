@@ -17,6 +17,7 @@ function useEfotp() {
       fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT_GET}:${process.env.NEXT_PUBLIC_API_PORT_LOGIN}/users`, requestOptions)
         .then(response => response.json())
         .then(result => {
+          console.log("🚀 ~ file: useefgetalluser.js:20 ~ useEffect ~ result:", result)
           if(result){
             setState((prevData) => ({ ...prevData, alluser: result }));
           }else{

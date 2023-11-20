@@ -29,9 +29,17 @@ const handleClick2 = () => {
   setState(predata => ({ ...predata, selectedCompany: undefined })); 
 };
 const router = useRouter();
-  const clickTo = () => {
+const clickTo = () => {
+  if (state.Nocompany === true) {
+    const updatedValidate = [{ match: false }];
+    setState((predata) => ({...predata,validate: updatedValidate,}));
+    setTimeout(() => {
+      router.push('/registration');
+    }, 0);
+  } else {
     router.push('/registration');
-  };
+  }
+};
   return (
       <Box sx={{background:`linear-gradient(${themedata[0].primary}, ${themedata[0].three})`,height:"100vh",width:'100%'}}>
         <Box p={3} sx={{display:'flex',flexDirection:'column', background: 'white',width:'60%',height:'auto',

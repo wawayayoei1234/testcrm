@@ -36,13 +36,13 @@ function index() {
         </Box>
         {/* //*title */}
 
-       
+        {/* //!remember and forgot */}
         <Box width="100%" display="flex" justifyContent="space-between">
           <FormControlLabel control={<Checkbox onClick={()=>{setstate((prevData) => ({ ...prevData, remember: !state.remember }));}}/>}
           label={LoginText[0].remember}sx={{'& .MuiSvgIcon-root': { fontSize: 16 },' & .MuiTypography-root': { fontSize: "12px", fontFamily: frontdata[0].font } }}/>
-          <Button variant="text"sx={{color:`${themedata[0].secondary}`,textTransform:'capitalize', fontFamily: frontdata[0].font,fontSize: "12px",}} >{LoginText[0].forgot}</Button>
+          <Button onClick={()=>{router.push('/forgot-password');}} variant="text"sx={{color:`${themedata[0].secondary}`,textTransform:'capitalize', fontFamily: frontdata[0].font,fontSize: "12px",}} >{LoginText[0].forgot}</Button>
         </Box>
-      
+        {/* //!remember and forgot */}
 
         {/* //?button */}
         <Button variant='contained' onClick={handleClick} style={{ fontSize: '12px', padding: '6px 12px',backgroundColor:`${themedata[0].primary}`,width: '300px', height: 'auto',textTransform:'capitalize', fontFamily: frontdata[0].font,color:`${themedata[0].three}` }}>{state.loading?<Loading/>:"Next"}</Button>

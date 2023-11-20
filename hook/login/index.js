@@ -40,8 +40,8 @@ function useHandleClick() {
             if(decodedToken.requires_action==="change_password"){
               router.push('/resetpassword');
             }else{
-              router.push('/emailverification');
               setState((prevData) => ({ ...prevData, btverify: true}));
+              router.push('/emailverification');
             }
           }else{
             setState((prevData) => ({ ...prevData, alert: true,errordetail: result.message }));

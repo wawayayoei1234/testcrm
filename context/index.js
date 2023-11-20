@@ -20,7 +20,8 @@ export const MyProvider = (props) => {
   "confirmlink":[],"confirmlink_decode":[],"totp":"","bttryanother":false,"qrcode_url":[],"anchorEl":null,"data":[],"selectedProvince":"",
   "selectedAmphoe":"","selectedTambon":"","firstName":"","LastName":"","jobTitle":"","company_email":"","MobileNumber":"",
   "CompanyName":"","Branch":"","Address":"","Address2":"","Website":"","Country":"","Confirmed":false,"Email":"","OpenAlert":false,
-  "selectedCountry":"","math":false,"password":"","role":"","company_name_en":"","alluser":[],"email":"","validate":[],"Nocompany":false,"Mycompany":false,"selectedCompany":undefined, 
+  "selectedCountry":"","math":false,"password":"","role":"","company_name_en":"","alluser":[],"email":"","validate":[],"Nocompany":false,"Mycompany":false,"selectedCompany":undefined,
+  "login_text":[],"color":[]
 });
   return (
     <>

@@ -3,6 +3,7 @@ import { useCookies } from 'react-cookie'; // Import useCookies
 import { MyContext } from '@/context';
 
 function useEfotp() {
+  const [state, setState] = React.useContext(MyContext);
   const [cookies, setCookie, removeCookie] = useCookies(['bearer_token']);
   useEffect(() => {
     if (cookies.bearer_token) {

@@ -3,11 +3,11 @@ import React, { useEffect } from 'react'
 import HandletimeOutCallback from '@/hook/timeoutcallback'
 
 function timeoutcallback() {
-    const [state, setstate] = React.useContext(MyContext);
+    const [state, setState] = React.useContext(MyContext);
     const timeOutCallback = HandletimeOutCallback();
 
     useEffect(() => {
-        setstate(prevAllTime => ({...prevAllTime,timeOutCallback: timeOutCallback}));
+        setState(prevAllTime => ({...prevAllTime,timeOutCallback: timeOutCallback}));
       }, [timeOutCallback]);
   return null;
 }

@@ -25,7 +25,8 @@ function index() {
           .then(response => response.json())
           .then(result => {
             if(result.status==="OK"){
-              router.push('/home');
+              setState((prevData) => ({ ...prevData, btverify: false }));
+              router.push('/profile');
             }else{
               setState((prevData) => ({ ...prevData, alert: true,errordetail: result.message }));
             }
