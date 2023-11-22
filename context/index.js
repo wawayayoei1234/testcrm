@@ -17,11 +17,11 @@ export const MyProvider = (props) => {
   "decode_token":[],"bearer_token":"","oldpassword":"","newpassword":"","confirmpassword":"","alert":false,"errordetail":"","isFormValid":false,
   "showPassword":false,"remember":false,"loading":false,"status":false,"url_alert":"","btverify":false,"otp":"","timer": 0,"timeOutCallback": null,
   "disabledbt":false,showNewPassword:false,showConPassword:false,passwordStrength:"",passwordsMatch:"",minLength: false,hasNumber: false,hasUpper: false,hasLower: false,
-  "confirmlink":[],"confirmlink_decode":[],"totp":"","bttryanother":false,"qrcode_url":[],"anchorEl":null,"data":[],"selectedProvince":"",
+  "confirmlink":[],"confirmlink_decode":[],"totp":"","bttryanother":false,"qrcode_url":[],"anchorEl":null,"selectedProvince":"",
   "selectedAmphoe":"","selectedTambon":"","firstName":"","LastName":"","jobTitle":"","company_email":"","MobileNumber":"",
   "CompanyName":"","Branch":"","Address":"","Address2":"","Website":"","Country":"","Confirmed":false,"Email":"","OpenAlert":false,
   "selectedCountry":"","math":false,"password":"","role":"","company_name_en":"","alluser":[],"email":"","validate":[],"Nocompany":false,"Mycompany":false,"selectedCompany":undefined,
-  "login_text":[],"color":[]
+  "login_text":[],"color":[],"openpc":false
 });
   return (
     <>

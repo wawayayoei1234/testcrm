@@ -15,14 +15,11 @@ function truncateAfterWhitespace(str, maxLength) {
   if (str.length <= maxLength) {
     return str;
   }
-
   const truncatedStr = str.substr(0, maxLength);
-  const lastSpaceIndex = truncatedStr.lastIndexOf(' ');
-
+  const lastSpaceIndex = truncatedStr.lastIndexOf('');
   if (lastSpaceIndex === -1) return truncatedStr; 
   return truncatedStr.substr(0, lastSpaceIndex);
 }
-
 const truncatedName = truncateAfterWhitespace(userName, 10);
 
   return (

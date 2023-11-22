@@ -1,10 +1,8 @@
 import React from 'react'
-
+import Welcome from './welcome'
 function index() {
   return (
-    <div>index
-      
-    </div>
+    <Welcome/>
   )
 }
 

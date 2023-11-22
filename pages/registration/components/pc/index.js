@@ -7,6 +7,8 @@ import { themedata } from 'data/themedata';
 import { frontdata } from 'data/frontdata'; 
 import {MyContext} from 'context'
 import { useSession } from 'next-auth/react';
+import { buttontext } from '@/data/buttondata';
+import Loading from '@/components/loading'
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -14,18 +16,15 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 function index() {
   const [state, setState] = useContext(MyContext);
   const { data: session } = useSession();
-  const {match,setmatch} = useState('')
-  console.log('state.validate.match:', state.validate.match);
-
   const handleCheckboxChange = (event) => {
   setState((prevData) => ({ ...prevData, Confirmed: event.target.checked }));
 }
 const [openAlert, setOpenAlert] = useState(false);
 const handleClickOpen = () => {
-   if (state.firstName && state.LastName && state.jobTitle && state.company_email && state.MobileNumber && state.CompanyName && state.Address && state.Address2
-    && state.Branch&& state.Website && state.MobileNumber && state.selectedCountry && state.selectedProvince && state.selectedAmphoe
-    && state.selectedTambon && state.zipcode ) {
-      setState((prevData) => ({ ...prevData, open: true }))
+   if (state.firstName && state.LastName && state.jobTitle && state.email && state.MobileNumber && state.validate.corporate_name_en && state.validate.address1 && state.validate.address2
+    && state.validate.website && state.MobileNumber && state.validate.country_name && state.validate.local_address_province && state.validate.sub_district
+    && state.validate.district && state.validate.local_address_zipcode ) {
+      setState((prevData) => ({ ...prevData, openpc: true }))
   } else {
     setOpenAlert(true);
   }
@@ -34,9 +33,8 @@ const handleCloseAlert = () => {
   setOpenAlert(false);
 }
 const handleClose = () => {
-  setState((prevData) => ({ ...prevData, open: false }));
+  setState((prevData) => ({ ...prevData, openpc: false }));
 }
-  
   const handleCountryChange = (event) => {
     setState(prevState => ({ ...prevState, selectedCountry: event.target.value }));
   };
@@ -82,24 +80,23 @@ const handleClose = () => {
   const handleSubmit = async () => {
     const payload = {
       email: session.user.email,
-      company_email: state.company_email, 
+      company_email: state.email, 
       job_title: state.jobTitle,
       firstname: state.firstName,
       lastname: state.LastName,
-      company_name: state.CompanyName,
-      address: state.Address,
-      address2: state.Address2,
-      website: state.Website,
+      company_name: state.validate.corporate_name_en,
+      address: state.validate.address1,
+      address2: state.validate.address2,
+      website: state.validate.website,
       mobile_number: state.MobileNumber,
-      country: state.selectedCountry,
-      province: state.selectedProvince,
-      district: state.selectedAmphoe,
-      sub_district: state.selectedTambon,
-      postal_zipcode: state.zipcode,
-      
+      country: state.validate.country_name,
+      province: state.validate.local_address_province,
+      district: state.validate.district,
+      sub_district: state.validate.sub_district,
+      postal_zipcode: state.validate.local_address_zipcode,
     };
     try {
-      const response = await fetch("http://192.168.5.48:8008/register-chiccrm", {
+      const response = await fetch("http://192.168.5.38:8008/register-chiccrm", {
         method: 'POST',
         headers: {"Content-Type": "application/json" },
         body: JSON.stringify(payload)
@@ -132,7 +129,7 @@ const handleClose = () => {
             <TextField  id="jobTitle" name="jobTitle" label="Job Title"placeholder="Enter Your Job Title" size='small' value={state.jobTitle} onChange={handleInputChange}  style={{ width: '300px', height: '60px' }} focused color='primary'/>
             </Grid>
             <Grid item xs={4}>
-            <TextField  id="Email" name="company_email" label="Email"placeholder="example@thac.com" size='small'value={state.company_email} onChange={handleInputChange}  style={{ width: '300px', height: '60px' }} focused color='primary'/>
+            <TextField disabled={state.validate.match === true ? true :true }  id="Email" name="company_email" label="Email"placeholder="example@thac.com" size='small'value={state.email} onChange={handleInputChange}  style={{ width: '300px', height: '60px' }} focused color='primary'/>
             </Grid>     
             <Grid item xs={4}>
             <TextField  id="LastName" name="LastName" label="Last Name"placeholder="Enter Your Last Name" size='small' value={state.LastName} onChange={handleInputChange}  style={{ width: '300px', height: '60px' }} focused color='primary'/>
@@ -174,7 +171,7 @@ const handleClose = () => {
             {state.validate.match === false ?  
             <FormControl >
             <InputLabel >State / Provice</InputLabel>
-            <Select labelId="province-select" id="province-select" value={state.selectedProvince} label="Province" onChange={handleProvinceChange}
+            <Select labelId="province-select" id="province-select" value={state.validate.local_address_province} label="Province" onChange={handleProvinceChange}
             style={{ width: '300px', height: '40px' }} size='small'>
               {state.provinces.map((province, index) => (
                 <MenuItem key={index} value={province}>
@@ -233,7 +230,7 @@ const handleClose = () => {
         <Box sx={{display: 'flex', justifyContent: 'center', mb:3}}>
         <Button variant="contained" onClick={handleClickOpen} sx={{color:'white', textTransform:'capitalize', width: '200px', height: 'auto'}}>Next</Button>
         <Box>
-          <Dialog fullScreen open={state.open} onClose={handleClose} TransitionComponent={Transition}>
+        <Dialog fullScreen open={state.openpc} onClose={handleClose} TransitionComponent={Transition}>
             <Box p={2}>
                    <Box sx={{ color: `${themedata[0].ten}`, fontSize: 25, fontFamily: frontdata[0].font, fontWeight: '400', wordWrap: 'break-word'}}>User Registration</Box>
           <Box pb={3} sx={{color:  `${themedata[0].four}`, fontSize: 15, fontFamily: frontdata[0].font, fontWeight: '0', textAlign: 'left'}}>
@@ -248,7 +245,7 @@ const handleClose = () => {
               <TextField disabled id="outlined-disabled"label="Disabled" value={state.jobTitle} size='small' sx={{ width: '70%' }} />
             </Grid>
             <Grid item xs={4}>
-              <TextField disabled id="outlined-disabled"label="Disabled" value={state.company_email} size='small' sx={{ width: '70%' }} />
+              <TextField disabled id="outlined-disabled"label="Disabled" value={state.email} size='small' sx={{ width: '70%' }} />
             </Grid>     
             <Grid item xs={4}>
               <TextField disabled id="outlined-disabled"label="Disabled" value={state.LastName} size='small' sx={{ width: '70%' }} />
@@ -262,35 +259,35 @@ const handleClose = () => {
           <Box p={3} sx={{color: `${themedata[0].ten}`, fontSize: 22, fontFamily: frontdata[0].font, fontWeight: '400', wordWrap: 'break-word'}}>Company Details</Box>
           <Grid item  container  pl={15}  columnSpacing={{ xs: 1, sm: 2, md: 3 }} sx={{  width: '50%' }}>
             <Grid item  xs={4} pb={2}>
-              <TextField disabled id="outlined-disabled"label="Disabled"value={state.CompanyName} size='small' sx={{ width: '70%' }} />
+              <TextField disabled id="outlined-disabled"label="Disabled"value={state.validate.corporate_name_en} size='small' sx={{ width: '70%' }} />
             </Grid>
             <Grid item xs={4}>
-              <TextField disabled id="outlined-disabled"label="Disabled"value={state.selectedCountry} size='small' sx={{ width: '70%' }} />
+              <TextField disabled id="outlined-disabled"label="Disabled"value={state.validate.country_name} size='small' sx={{ width: '70%' }} />
             </Grid>
             <Grid item xs={4}>
-              <TextField disabled id="outlined-disabled"label="Disabled"value={state.zipcode} size='small' sx={{ width: '70%' }} />
+              <TextField disabled id="outlined-disabled"label="Disabled"value={state.validate.local_address_zipcode} size='small' sx={{ width: '70%' }} />
             </Grid>     
             <Grid item  xs={4}pb={2}>
               <TextField disabled id="outlined-disabled"label="Disabled" value={state.Branch}  size='small' sx={{ width: '70%' }} />
             </Grid> 
             <Grid item xs={4}>
-              <TextField disabled id="outlined-disabled"label="Disabled"value={state.selectedProvince} size='small' sx={{ width: '70%' }} />
+              <TextField disabled id="outlined-disabled"label="Disabled"value={state.validate.local_address_province} size='small' sx={{ width: '70%' }} />
             </Grid> 
             <Grid item xs={4} pb={2}>
-              <TextField disabled id="outlined-disabled"label="Disabled"value={state.Website} size='small' sx={{ width: '70%' }} />
+              <TextField disabled id="outlined-disabled"label="Disabled"value={state.validate.website} size='small' sx={{ width: '70%' }} />
             </Grid>
             <Grid item xs={4} pb={2}>
-              <TextField disabled id="outlined-disabled"label="Disabled"value={state.Address} size='small' sx={{ width: '70%' }} />
+              <TextField disabled id="outlined-disabled"label="Disabled"value={state.validate.address1} size='small' sx={{ width: '70%' }} />
             </Grid>
             <Grid item xs={4}>
-              <TextField disabled id="outlined-disabled"label="Disabled"value={state.selectedAmphoe} size='small' sx={{ width: '70%' }} />
+              <TextField disabled id="outlined-disabled"label="Disabled"value={state.validate.district} size='small' sx={{ width: '70%' }} />
             </Grid>
             <Grid item xs={4}></Grid>      
             <Grid item xs={4}>
-              <TextField disabled id="outlined-disabled"label="Disabled" value={state.Address2} size='small' sx={{ width: '70%' }} />
+              <TextField disabled id="outlined-disabled"label="Disabled" value={state.validate.address2} size='small' sx={{ width: '70%' }} />
             </Grid> 
             <Grid item xs={4}>
-              <TextField disabled id="outlined-disabled"label="Disabled"value={state.selectedTambon} size='small' sx={{ width: '70%' }} />
+              <TextField disabled id="outlined-disabled"label="Disabled"value={state.validate.sub_district} size='small' sx={{ width: '70%' }} />
             </Grid> 
           </Grid>
           <Box p={1} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
@@ -299,7 +296,7 @@ const handleClose = () => {
           <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
               <Button variant="outlined" onClick={handleClose} sx={{width:'30%'}}>Back</Button>
               <Box p={1}/>
-              <Button disabled={!state.Confirmed} variant="contained"sx={{width:'30%'}} onClick={handleSubmit} >Confirm</Button>
+              <Button disabled={!state.Confirmed} variant="contained"sx={{width:'30%'}} onClick={handleSubmit} >{state.loading?<Loading/>:buttontext[0].text}</Button>
             </Box>
           </Box>
             </Dialog>

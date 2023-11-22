@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import logocmpany from '../../../../data/images/3675555 1.png'
 import { themedata } from '../../../../data/themedata';
 import { frontdata } from '../../../../data/frontdata'; 
+import Link from 'next/link';
 function Index() {
   const [otp, setOtp] = useState('');
   return (
@@ -16,8 +17,10 @@ function Index() {
           }}>We have sent password to your Email<br></br> 
           ex**e@tracmail.com</Box>
           <Box pb={3} ><Image alt="Iconview" src={logocmpany} width={200} height={'auto'}></Image></Box>       
+          <Link href="/login" >
           <Button  variant='contained'  style={{ fontSize: '12px', padding: '6px 12px',backgroundColor:`${themedata[0].primary}`,
           width: '300px', height: 'auto',textTransform:'capitalize', fontFamily: frontdata[0].font,color:`${themedata[0].three}` }}>Next</Button>
+          </Link>
         <Box p={2}>
       <label style={{color:`${themedata[0].four}`,fontSize: 15, fontFamily: frontdata[0].font}}>Didn’t receive password?</label>
       <Button variant="text" sx={{color:`${themedata[0].secondary}`,textTransform:'capitalize', fontFamily: frontdata[0].font}} >Resend</Button>

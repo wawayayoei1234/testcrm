@@ -48,7 +48,7 @@ function index() {
         <Button variant='contained' onClick={handleClick} style={{ fontSize: '12px', padding: '6px 12px',backgroundColor:`${themedata[0].primary}`,width: '300px', height: 'auto',textTransform:'capitalize', fontFamily: frontdata[0].font,color:`${themedata[0].three}` }}>{state.loading?<Loading/>:"Next"}</Button>
         <Box p={1}>
         <label style={{color:`${themedata[0].four}`,fontSize: "13px", fontFamily: frontdata[0].font}}>{LoginText[0].textnewaccount}</label>
-        <Button onClick={()=>{router.push('/validatedomain');}} variant="text" sx={{color:`${themedata[0].secondary}`,textTransform:'capitalize', fontFamily: frontdata[0].font}} >{LoginText[0].signup}</Button>
+        <Button onClick={()=>{router.push('/entercompany');}} variant="text" sx={{color:`${themedata[0].secondary}`,textTransform:'capitalize', fontFamily: frontdata[0].font}} >{LoginText[0].signup}</Button>
         </Box>
         {/* //?button */}
       </Box>

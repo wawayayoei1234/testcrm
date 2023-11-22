@@ -5,11 +5,12 @@ import Layout from '../../components/layout';
 import Navbar from './components/navbar';
 import Conten from './components/conten2';
 import Mobile from './components/mobile';
-
+import Title from '@/components/title';
 function Index() {
   const matches = useMediaQuery('(min-width:960px)') 
   return (
     <Box>
+      <Title namepage="Profile" company="Partne ChicCRM"/>
       <Layout containerheight="auto" templaterow="1fr auto auto" templateareas="'nav' 'content1' 'content2'"
         mtemplaterow="0fr auto auto" mtemplateareas="'nav' 'content1' 'content2'"
         nav={<Box><Navbar/></Box>}

@@ -4,12 +4,12 @@ import Image from 'next/image';
 import attenden from '../../../../data/images/7125203 1.png'
 import note  from '../../../../data/images/6306500 1.png'
 import pust  from '../../../../data/images/Group.png'
-import carenda  from '../../../../data/images/6307184 1.png'
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DateCalendar } from '@mui/x-date-pickers/DateCalendar';
 import { themedata } from '../../../../data/themedata';
 import { frontdata } from '../../../../data/frontdata'; 
+import Link from 'next/link';
 export default function () {
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
@@ -34,7 +34,9 @@ export default function () {
                 <Box sx={{ color: `${themedata[0].ten}`, fontSize: 24, fontFamily: frontdata[0].font, fontWeight: '40' }}>Company</Box>
                 <Box p={4} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
                 <Box>
+                <Link  href="/entercompany" >
                   <Image alt="Iconview" src={pust} width={100} height={'auto'} />
+                  </Link>
                 </Box>
                 </Box>
               </Box>
